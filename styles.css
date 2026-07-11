@@ -1,12 +1,112 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<title>Stories | Ben Athem</title></head><body><header class="site-header"><a class="brand" href="index.html">Ben Athem</a><nav><a href="index.html">Home</a><a href="stories.html">Stories</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header><section class="page-hero"><p class="eyebrow">Books</p><h1>Stories</h1><p>Stories of quiet hope, unlikely companionship and people learning to become home for one another.</p></section><main class="section"><div class="gallery">
-<a class="book-card" href="where-we-take-root.html"><div class="book-cover"><img src="assets/where-we-take-root.jpg" alt="Where We Take Root cover"></div><h3>Where We Take Root</h3><p class="meta">January 2027</p></a>
-<a class="book-card" href="take-me-with-you.html"><div class="book-cover"><img src="assets/take-me-with-you.png" alt="Take Me With You cover"></div><h3>Take Me With You</h3><p class="meta">June 2027</p></a>
-<a class="book-card" href="where-starlight-finds-you.html"><div class="book-cover"><img src="assets/where-starlight-finds-you.png" alt="Where Starlight Finds You cover"></div><h3>Where Starlight Finds You</h3><p class="meta">Forthcoming</p></a>
-</div></main><footer><p>© 2026 Ben Athem</p><p>Quiet speculative fiction about love, hope and belonging.</p></footer></body></html>
+
+:root{
+--bg:#f4efe7;
+--text:#1f2a28;
+--blue1:#0d1930;
+--blue2:#1f3558;
+--accent:#bda36a;
+}
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.8;
+}
+.site-header{
+position:absolute;
+top:0;
+left:0;
+right:0;
+padding:30px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:5;
+}
+.brand a,nav a{
+color:white;
+text-decoration:none;
+}
+nav{
+display:flex;
+gap:32px;
+}
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px;
+background:
+radial-gradient(circle at top,#35507f55,transparent 35%),
+linear-gradient(160deg,var(--blue1),var(--blue2));
+color:white;
+}
+.hero-inner{
+max-width:900px;
+}
+.hero h1{
+font-family:Georgia,serif;
+font-size:clamp(4rem,10vw,8rem);
+margin:0;
+font-weight:400;
+}
+.tagline{
+font-family:Georgia,serif;
+font-size:clamp(1.4rem,2.7vw,2.2rem);
+max-width:700px;
+margin:40px auto 0;
+}
+.intro,.quote{
+padding:120px 8%;
+}
+.content{
+max-width:900px;
+margin:auto;
+}
+.lead{
+font-family:Georgia,serif;
+font-size:clamp(2rem,4vw,3.5rem);
+line-height:1.25;
+}
+.button{
+display:inline-block;
+margin-top:50px;
+padding:16px 30px;
+border:1px solid var(--text);
+text-decoration:none;
+color:var(--text);
+transition:.25s;
+}
+.button:hover{
+background:var(--text);
+color:white;
+}
+.quote{
+text-align:center;
+}
+.quote p{
+font-size:1.3rem;
+}
+.quote h2{
+font-family:Georgia,serif;
+font-size:clamp(2.5rem,5vw,5rem);
+font-weight:400;
+max-width:900px;
+margin:30px auto;
+}
+footer{
+padding:50px;
+text-align:center;
+border-top:1px solid #ddd;
+}
+@media(max-width:800px){
+.site-header{
+position:relative;
+background:#14213f;
+}
+nav{gap:16px;font-size:.9rem}
+}
