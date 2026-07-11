@@ -13,6 +13,32 @@ margin:120px auto;
 padding:0 30px;
 }
 
+.form-success,
+.form-error {
+  display: none;
+  margin-bottom: 30px;
+  padding: 18px 20px;
+  border-radius: 8px;
+}
+
+.form-success:not(:empty) {
+  display: block;
+  background: #e2ece7;
+  border: 1px solid #9fb5a9;
+}
+
+.form-error:not(:empty) {
+  display: block;
+  background: #f5e3e3;
+  border: 1px solid #c89f9f;
+}
+
+[data-fs-error] {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+  
 .contact h1{
 font-size:3.5rem;
 margin-bottom:20px;
@@ -87,39 +113,75 @@ opacity:.9;
 Whether you have a question about my books, would like to discuss translation or rights opportunities, or simply want to say hello, I'd love to hear from you.
 </p>
 
-<form action="https://formspree.io/f/xwvgeenr" method="POST">
+<div class="form-success" data-fs-success>
+  Thank you for your message. It has been received safely.
+</div>
 
-<label for="name">Name</label>
-<input
-id="name"
-type="text"
-name="name"
-required>
+<div class="form-error" data-fs-error>
+  Something went wrong. Please try again.
+</div>
 
-<label for="email">Email</label>
-<input
-id="email"
-type="email"
-name="email"
-required>
+<form id="contact-form">
 
-<label for="subject">Subject</label>
-<input
-id="subject"
-type="text"
-name="subject">
+  <label for="name">Name</label>
+  <input
+    id="name"
+    type="text"
+    name="name"
+    data-fs-field
+    required
+  >
+  <span data-fs-error="name"></span>
 
-<label for="message">Message</label>
-<textarea
-id="message"
-name="message"
-required></textarea>
+  <label for="email">Email</label>
+  <input
+    id="email"
+    type="email"
+    name="email"
+    data-fs-field
+    required
+  >
+  <span data-fs-error="email"></span>
 
-<button type="submit">
-Send Message
-</button>
+  <label for="subject">Subject</label>
+  <input
+    id="subject"
+    type="text"
+    name="subject"
+    data-fs-field
+  >
+  <span data-fs-error="subject"></span>
+
+  <label for="message">Message</label>
+  <textarea
+    id="message"
+    name="message"
+    data-fs-field
+    required
+  ></textarea>
+  <span data-fs-error="message"></span>
+
+  <button type="submit" data-fs-submit-btn>
+    Send Message
+  </button>
 
 </form>
+
+<script>
+  window.formspree = window.formspree || function () {
+    (formspree.q = formspree.q || []).push(arguments);
+  };
+
+  formspree('initForm', {
+    formElement: '#contact-form',
+    formId: 'xwvgeenr'
+  });
+</script>
+
+<script
+  src="https://unpkg.com/@formspree/ajax@1"
+  defer>
+</script>
 
 </section>
 
