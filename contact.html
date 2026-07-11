@@ -1,8 +1,75 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<title>Get in Touch | Ben Athem</title></head><body><header class="site-header"><a class="brand" href="index.html">Ben Athem</a><nav><a href="index.html">Home</a><a href="stories.html">Stories</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header><main class="contact"><h1>Get in Touch</h1><p class="contact-intro">Whether you have a question about my books, would like to discuss translation or rights opportunities, or simply want to say hello, I’d love to hear from you.</p><div class="form-success" data-fs-success></div><div class="form-error" data-fs-error></div><form id="contact-form"><label for="name">Name</label><input id="name" type="text" name="name" data-fs-field required><span data-fs-error="name"></span><label for="email">Email</label><input id="email" type="email" name="email" data-fs-field required><span data-fs-error="email"></span><label for="subject">Subject</label><input id="subject" type="text" name="subject" data-fs-field><span data-fs-error="subject"></span><label for="message">Message</label><textarea id="message" name="message" data-fs-field required></textarea><span data-fs-error="message"></span><button type="submit" data-fs-submit-btn>Send Message</button></form><script>window.formspree=window.formspree||function(){(formspree.q=formspree.q||[]).push(arguments);};formspree('initForm',{formElement:'#contact-form',formId:'xwvgeenr'});</script><script src="https://unpkg.com/@formspree/ajax@1" defer></script></main><footer><p>© 2026 Ben Athem</p><p>Quiet speculative fiction about love, hope and belonging.</p></footer></body></html>
+
+<title>Contact | Ben Athem</title>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img src="assets/ben-athem-logo.png" alt="">
+    <span>Ben Athem</span>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="stories.html">Books</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="contact">
+  <p class="eyebrow">Contact</p>
+  <h1>Get in Touch</h1>
+  <p class="contact-intro">Whether you have a question about my books, would like to discuss translation or rights opportunities, or simply want to say hello, I’d love to hear from you.</p>
+
+  <div class="form-success" data-fs-success></div>
+  <div class="form-error" data-fs-error></div>
+
+  <form id="contact-form">
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name" data-fs-field required>
+    <span data-fs-error="name"></span>
+
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" data-fs-field required>
+    <span data-fs-error="email"></span>
+
+    <label for="subject">Subject</label>
+    <input id="subject" type="text" name="subject" data-fs-field>
+    <span data-fs-error="subject"></span>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" data-fs-field required></textarea>
+    <span data-fs-error="message"></span>
+
+    <button type="submit" data-fs-submit-btn>Send Message</button>
+  </form>
+
+  <script>
+    window.formspree = window.formspree || function () {
+      (formspree.q = formspree.q || []).push(arguments);
+    };
+    formspree('initForm', {
+      formElement: '#contact-form',
+      formId: 'xwvgeenr'
+    });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 Ben Athem</p>
+  <p>Quiet, character-driven queer science-fiction romance.</p>
+</footer>
+
+</body>
+</html>
