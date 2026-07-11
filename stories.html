@@ -3,93 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Stories | Ben Athem</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="styles.css">
-
 <style>
-
 .gallery{
-    width:min(1200px,90%);
-    margin:160px auto;
+max-width:1300px;
+margin:120px auto;
+padding:0 40px;
 }
 
 .gallery h1{
-    font-family:"Newsreader",serif;
-    font-size:4rem;
-    text-align:center;
-    margin-bottom:20px;
+text-align:center;
+font-size:4rem;
+margin-bottom:10px;
 }
 
 .gallery p{
-    text-align:center;
-    max-width:700px;
-    margin:auto;
-    margin-bottom:80px;
+text-align:center;
+max-width:700px;
+margin:0 auto 60px;
 }
 
-.book-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:50px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:50px;
 }
 
 .book{
-    text-decoration:none;
-    color:inherit;
-    transition:.25s;
+text-decoration:none;
+color:inherit;
+transition:.25s;
 }
 
 .book:hover{
-    transform:translateY(-8px);
+transform:translateY(-10px);
 }
 
 .book img{
-    width:100%;
-    border-radius:8px;
-    box-shadow:0 25px 50px rgba(0,0,0,.25);
+width:100%;
+border-radius:10px;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
 .book h2{
-    font-family:"Newsreader",serif;
-    margin-top:25px;
-    margin-bottom:10px;
-    font-size:2rem;
+margin:20px 0 8px;
+text-align:center;
 }
 
-.date{
-    opacity:.7;
-    font-size:.9rem;
+.book p{
+margin:0;
+opacity:.7;
 }
-
 </style>
-
 </head>
 
 <body>
 
 <header class="site-header">
-
 <a class="brand" href="index.html">Ben Athem</a>
 
 <nav>
-
 <a href="index.html">Home</a>
-
-<a href="stories.html">Stories</a>
-
 <a href="about.html">About</a>
-
 </nav>
 
 </header>
 
-<section class="gallery">
+<div class="gallery">
 
 <h1>Stories</h1>
 
@@ -97,41 +78,29 @@
 Stories of quiet hope, unlikely friendships, and people learning to become home for one another.
 </p>
 
-<div class="book-grid">
+<div class="grid">
 
 <a class="book" href="where-we-take-root.html">
-
 <img src="assets/where-we-take-root.jpg">
-
 <h2>Where We Take Root</h2>
-
-<div class="date">January 2027</div>
-
+<p>January 2027</p>
 </a>
 
 <a class="book" href="take-me-with-you.html">
-
 <img src="assets/take-me-with-you.png">
-
 <h2>Take Me With You</h2>
-
-<div class="date">June 2027</div>
-
+<p>June 2027</p>
 </a>
 
 <a class="book" href="where-starlight-finds-you.html">
-
 <img src="assets/where-starlight-finds-you.png">
-
 <h2>Where Starlight Finds You</h2>
-
-<div class="date">Coming Soon</div>
-
+<p>Coming Soon</p>
 </a>
 
 </div>
 
-</section>
+</div>
 
 </body>
 </html>
