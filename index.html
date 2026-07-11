@@ -3,10 +3,342 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ben Athem</title>
+
+  <title>Ben Athem | Speculative Fiction Author</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3efe6;
+      color: #26312c;
+      line-height: 1.7;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background:
+        linear-gradient(rgba(24, 38, 32, 0.72), rgba(24, 38, 32, 0.82)),
+        url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=80");
+      background-size: cover;
+      background-position: center;
+      color: #f7f3ea;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 8%;
+    }
+
+    .site-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: #f7f3ea;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: normal;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero .tagline {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+      max-width: 760px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero .quote {
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      font-style: italic;
+      color: #ddd8cc;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.9rem 1.5rem;
+      border: 1px solid #f7f3ea;
+      color: #f7f3ea;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: 0.3s ease;
+    }
+
+    .button:hover {
+      background: #f7f3ea;
+      color: #26312c;
+    }
+
+    main {
+      width: min(1100px, 88%);
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 6rem 0;
+    }
+
+    section + section {
+      border-top: 1px solid #cfc8b9;
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: normal;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro {
+      max-width: 760px;
+    }
+
+    .intro p {
+      font-size: 1.12rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .book-card {
+      background: #e7e0d3;
+      padding: 2rem;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .book-card p {
+      margin-top: 0.75rem;
+    }
+
+    .book-card .date {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      margin-bottom: auto;
+      color: #56645d;
+    }
+
+    .book-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: normal;
+    }
+
+    .about-text {
+      max-width: 780px;
+    }
+
+    .about-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    .closing-line {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      margin-top: 2rem;
+    }
+
+    footer {
+      background: #26312c;
+      color: #e9e4d9;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .books-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Ben Athem</h1>
-  <p>Quiet, character-driven speculative fiction about people learning to become home for one another.</p>
+
+  <header id="home">
+    <nav>
+      <div class="site-name">Ben Athem</div>
+
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Ben Athem</h1>
+
+        <p class="tagline">
+          Quiet, character-driven speculative fiction about people learning
+          to become home for one another.
+        </p>
+
+        <p class="quote">
+          Home is not always somewhere you return to.
+          Sometimes, it is someone who quietly chooses to stay.
+        </p>
+
+        <a class="button" href="#books">Explore the books</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="intro">
+        <h2>Stories of belonging</h2>
+
+        <p>
+          Ben Athem writes science fiction and fantasy rooted in compassion,
+          curiosity and hope.
+        </p>
+
+        <p>
+          His stories explore the small acts of kindness through which people
+          learn to understand one another, survive unfamiliar worlds and find
+          somewhere—or someone—that feels like home.
+        </p>
+      </div>
+    </section>
+
+    <section id="books">
+      <h2>Books</h2>
+
+      <div class="books-grid">
+
+        <article class="book-card">
+          <p class="date">Coming January 2027</p>
+          <h3>Where We Take Root</h3>
+          <p>
+            A character-driven science-fiction love story about loneliness,
+            trust and the quiet work of learning to belong.
+          </p>
+        </article>
+
+        <article class="book-card">
+          <p class="date">Coming June 2027</p>
+          <h3>Take Me With You</h3>
+          <p>
+            An ancient traveller, a human runaway and a journey through the
+            roads left behind by a vanished civilisation.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-text">
+        <h2>About Ben</h2>
+
+        <p>
+          Ben Athem writes quiet, character-driven speculative fiction about
+          people learning to become home for one another.
+        </p>
+
+        <p>
+          Whether set aboard a failing colony station, an ancient alien vessel,
+          or somewhere touched by magic, his stories are less interested in
+          extraordinary worlds than in the ordinary acts of kindness that allow
+          people to survive them.
+        </p>
+
+        <p>
+          His work explores belonging, loneliness, hope, curiosity and
+          compassion, often through unlikely relationships between people who
+          begin by misunderstanding one another and end by choosing, day after
+          day, to remain.
+        </p>
+
+        <p class="closing-line">
+          Sometimes, home is someone who quietly chooses to stay.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Ben Athem</p>
+    <p>Quiet speculative fiction about love, hope and belonging.</p>
+  </footer>
+
 </body>
 </html>
