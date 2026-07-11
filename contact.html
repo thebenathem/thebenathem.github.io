@@ -3,8 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Ben Athem</title>
+<title>Get in Touch | Ben Athem</title>
 <link rel="stylesheet" href="styles.css">
+
+<style>
+.contact{
+max-width:800px;
+margin:120px auto;
+padding:0 30px;
+}
+
+.contact h1{
+font-size:3.5rem;
+margin-bottom:20px;
+}
+
+.contact p{
+font-size:1.1rem;
+line-height:1.8;
+margin-bottom:40px;
+}
+
+label{
+display:block;
+margin:25px 0 8px;
+font-weight:600;
+}
+
+input,
+textarea{
+width:100%;
+padding:16px;
+font-size:1rem;
+border:1px solid #ccc;
+border-radius:8px;
+font-family:inherit;
+box-sizing:border-box;
+}
+
+textarea{
+min-height:220px;
+resize:vertical;
+}
+
+button{
+margin-top:30px;
+padding:16px 34px;
+border:none;
+background:#1f2b28;
+color:white;
+font-size:1rem;
+border-radius:8px;
+cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+opacity:.9;
+}
+</style>
+
 </head>
 
 <body>
@@ -21,31 +79,50 @@
 
 </header>
 
-<div class="container">
+<section class="contact">
 
-<h1>Contact</h1>
-
-<p>
-Thank you for visiting.
-</p>
+<h1>Get in Touch</h1>
 
 <p>
-For enquiries regarding my books, translations, rights, or other opportunities, please get in touch using the details below.
+Whether you have a question about my books, would like to discuss translation or rights opportunities, or simply want to say hello, I'd love to hear from you.
 </p>
 
-<h2>Email</h2>
+<form action="https://formspree.io/f/xwvgeenr" method="POST">
 
-<p>
-your@email.com
-</p>
+<label for="name">Name</label>
+<input
+id="name"
+type="text"
+name="name"
+required>
 
-<h2>Follow</h2>
+<label for="email">Email</label>
+<input
+id="email"
+type="email"
+name="email"
+required>
 
-<p>
-Website and social links coming soon.
-</p>
+<label for="subject">Subject</label>
+<input
+id="subject"
+type="text"
+name="subject">
 
-</div>
+<label for="message">Message</label>
+<textarea
+id="message"
+name="message"
+required></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
+</form>
+
+</section>
 
 </body>
+
 </html>
