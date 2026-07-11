@@ -3,342 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Ben Athem writes quiet, character-driven speculative fiction about people learning to become home for one another.">
   <title>Ben Athem | Speculative Fiction Author</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f3efe6;
-      color: #26312c;
-      line-height: 1.7;
-    }
-
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background:
-        linear-gradient(rgba(24, 38, 32, 0.72), rgba(24, 38, 32, 0.82)),
-        url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=80");
-      background-size: cover;
-      background-position: center;
-      color: #f7f3ea;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 8%;
-    }
-
-    .site-name {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.08em;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    nav a {
-      color: #f7f3ea;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 4rem 1.5rem;
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .hero h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.5rem, 9vw, 7rem);
-      font-weight: normal;
-      line-height: 1;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero .tagline {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.2rem, 2.8vw, 1.8rem);
-      max-width: 760px;
-      margin: 0 auto 2rem;
-    }
-
-    .hero .quote {
-      max-width: 620px;
-      margin: 0 auto 2.5rem;
-      font-style: italic;
-      color: #ddd8cc;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 0.9rem 1.5rem;
-      border: 1px solid #f7f3ea;
-      color: #f7f3ea;
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: 0.3s ease;
-    }
-
-    .button:hover {
-      background: #f7f3ea;
-      color: #26312c;
-    }
-
-    main {
-      width: min(1100px, 88%);
-      margin: 0 auto;
-    }
-
-    section {
-      padding: 6rem 0;
-    }
-
-    section + section {
-      border-top: 1px solid #cfc8b9;
-    }
-
-    h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: normal;
-      margin-bottom: 1.5rem;
-    }
-
-    .intro {
-      max-width: 760px;
-    }
-
-    .intro p {
-      font-size: 1.12rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .books-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
-
-    .book-card {
-      background: #e7e0d3;
-      padding: 2rem;
-      min-height: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .book-card p {
-      margin-top: 0.75rem;
-    }
-
-    .book-card .date {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.8rem;
-      margin-bottom: auto;
-      color: #56645d;
-    }
-
-    .book-card h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2rem;
-      font-weight: normal;
-    }
-
-    .about-text {
-      max-width: 780px;
-    }
-
-    .about-text p {
-      margin-bottom: 1.2rem;
-    }
-
-    .closing-line {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.6rem;
-      font-style: italic;
-      margin-top: 2rem;
-    }
-
-    footer {
-      background: #26312c;
-      color: #e9e4d9;
-      text-align: center;
-      padding: 3rem 1.5rem;
-    }
-
-    footer p {
-      margin-bottom: 0.5rem;
-    }
-
-    @media (max-width: 700px) {
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      nav ul {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .books-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 4rem 0;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header id="home">
-    <nav>
-      <div class="site-name">Ben Athem</div>
-
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#books">Books</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Ben Athem home">Ben Athem</a>
+    <nav aria-label="Primary navigation">
+      <a href="#books">Books</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
-
-    <div class="hero">
-      <div class="hero-content">
-        <h1>Ben Athem</h1>
-
-        <p class="tagline">
-          Quiet, character-driven speculative fiction about people learning
-          to become home for one another.
-        </p>
-
-        <p class="quote">
-          Home is not always somewhere you return to.
-          Sometimes, it is someone who quietly chooses to stay.
-        </p>
-
-        <a class="button" href="#books">Explore the books</a>
-      </div>
-    </div>
   </header>
 
-  <main>
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+      <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
 
-    <section>
-      <div class="intro">
-        <h2>Stories of belonging</h2>
-
-        <p>
-          Ben Athem writes science fiction and fantasy rooted in compassion,
-          curiosity and hope.
+      <div class="hero-content">
+        <p class="eyebrow">Speculative fiction by</p>
+        <h1>Ben Athem</h1>
+        <p class="hero-intro">
+          Quiet, character-driven stories about people learning to become
+          home for one another.
         </p>
-
-        <p>
-          His stories explore the small acts of kindness through which people
-          learn to understand one another, survive unfamiliar worlds and find
-          somewhere—or someone—that feels like home.
-        </p>
+        <a class="text-link" href="#books">Explore the books <span aria-hidden="true">↓</span></a>
       </div>
     </section>
 
-    <section id="books">
-      <h2>Books</h2>
+    <section class="statement section">
+      <p>
+        Whether set aboard a failing colony station, an ancient alien vessel,
+        or somewhere touched by magic, these stories are less interested in
+        extraordinary worlds than in the ordinary acts of kindness that allow
+        people to survive them.
+      </p>
+    </section>
 
-      <div class="books-grid">
+    <section class="books section" id="books">
+      <div class="section-heading">
+        <p class="eyebrow">Upcoming</p>
+        <h2>Stories of love, hope and belonging</h2>
+      </div>
 
+      <div class="book-grid">
         <article class="book-card">
-          <p class="date">Coming January 2027</p>
+          <div class="book-number" aria-hidden="true">01</div>
+          <p class="book-date">January 2027</p>
           <h3>Where We Take Root</h3>
           <p>
-            A character-driven science-fiction love story about loneliness,
-            trust and the quiet work of learning to belong.
+            A quiet science-fiction love story about loneliness, trust and the
+            slow work of learning to belong.
           </p>
+          <span class="coming-soon">Coming soon</span>
         </article>
 
         <article class="book-card">
-          <p class="date">Coming June 2027</p>
+          <div class="book-number" aria-hidden="true">02</div>
+          <p class="book-date">June 2027</p>
           <h3>Take Me With You</h3>
           <p>
-            An ancient traveller, a human runaway and a journey through the
-            roads left behind by a vanished civilisation.
+            An ancient traveller, a human runaway and a journey along the roads
+            left behind by a vanished civilisation.
           </p>
+          <span class="coming-soon">Coming soon</span>
         </article>
-
       </div>
     </section>
 
-    <section id="about">
-      <div class="about-text">
-        <h2>About Ben</h2>
+    <section class="about section" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">About the author</p>
+        <h2>Ben Athem</h2>
+      </div>
 
+      <div class="about-copy">
         <p>
           Ben Athem writes quiet, character-driven speculative fiction about
           people learning to become home for one another.
         </p>
-
-        <p>
-          Whether set aboard a failing colony station, an ancient alien vessel,
-          or somewhere touched by magic, his stories are less interested in
-          extraordinary worlds than in the ordinary acts of kindness that allow
-          people to survive them.
-        </p>
-
         <p>
           His work explores belonging, loneliness, hope, curiosity and
           compassion, often through unlikely relationships between people who
           begin by misunderstanding one another and end by choosing, day after
           day, to remain.
         </p>
-
-        <p class="closing-line">
-          Sometimes, home is someone who quietly chooses to stay.
+        <p>
+          Rather than relying on destiny or dramatic declarations, his romances
+          grow from countless small moments: a shared silence, an offered hand,
+          the decision to notice someone else’s needs before they are spoken.
+        </p>
+        <p>
+          His science fiction asks not, “What will the future look like?” but,
+          “What kind of people do we hope to become?”
+        </p>
+        <p>
+          His fantasy asks not, “What if magic existed?” but, “Would love become
+          any less ordinary if it did?”
         </p>
       </div>
     </section>
 
+    <section class="closing section">
+      <p class="closing-small">Home is not always somewhere you return to.</p>
+      <p class="closing-large">Sometimes, it is someone who quietly chooses to stay.</p>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div>
+        <p class="eyebrow">Stay close</p>
+        <h2>More is taking root.</h2>
+      </div>
+      <p>
+        News, excerpts and publication links will be added here as the books
+        approach release.
+      </p>
+    </section>
   </main>
 
   <footer>
     <p>© 2026 Ben Athem</p>
     <p>Quiet speculative fiction about love, hope and belonging.</p>
   </footer>
-
 </body>
 </html>
