@@ -26,14 +26,265 @@
     height:auto;
     display:block;
 }
-.home-panel{padding:32px 20px}.home-panel p{font-size:2rem;line-height:1.03;margin:0}.closing{text-align:center;padding:26px 20px 30px;background:linear-gradient(180deg,#0a171c,#071217)}.closing p{margin:0;font-size:1.35rem}.closing .dots{color:var(--gold);letter-spacing:.35em;margin:4px 0 8px}.closing .gold-script{font-size:1.8rem}.site-footer{display:grid;grid-template-columns:1fr 1.25fr;gap:80px;position:relative;padding:52px clamp(24px,10vw,160px) 76px;background:#071217;border-top:1px solid rgba(255,255,255,.04)}.footer-about h2,.contact-form h2{font-size:1.35rem;font-weight:400;letter-spacing:.25em;margin:0 0 12px}.footer-about p{max-width:260px;line-height:1.35;color:var(--muted)}.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px}.contact-form h2,.contact-form label[for="message"],.contact-form textarea,.contact-form button,.form-status{grid-column:1/-1}.contact-form label{font-family:Montserrat,Arial,sans-serif;font-size:.66rem;text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}.contact-form input,.contact-form textarea{width:100%;border:1px solid rgba(194,173,145,.45);background:rgba(255,255,255,.025);color:var(--cream);padding:11px;font:inherit}.contact-form textarea{resize:vertical}.contact-form button{justify-self:start;margin-top:6px;border:1px solid rgba(194,173,145,.55);background:transparent;color:var(--cream);padding:11px 20px;font-family:Montserrat,Arial,sans-serif;font-size:.67rem;letter-spacing:.13em;cursor:pointer}.contact-form button:hover{background:rgba(167,122,67,.16)}.form-status{min-height:1.2em;margin:2px 0 0;color:#c9ad86}.copyright{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:.8rem;color:#a79e93;white-space:nowrap}
-.book-page{min-height:100vh;background:linear-gradient(120deg,#071217,#0b1a20)}.book-page .site-header{position:relative}.book-detail{max-width:1120px;margin:0 auto;padding:45px 28px 80px;display:grid;grid-template-columns:minmax(260px,390px) 1fr;gap:70px;align-items:start}.book-detail img{width:100%;box-shadow:0 14px 40px rgba(0,0,0,.58)}.book-detail h1{font-size:clamp(2.7rem,5vw,5rem);font-weight:400;line-height:.95;margin:10px 0}.book-detail .eyebrow{font-family:Montserrat,Arial,sans-serif;color:#c59a65;letter-spacing:.17em;font-size:.72rem}.book-detail .description{font-size:1.24rem;line-height:1.5;color:#ddd2c5}.back-link{display:inline-block;margin-top:24px;border-bottom:1px solid var(--gold);color:#cfb18b}
-@media(max-width:850px){.site-header{padding:22px 24px}.menu-button{display:block}.main-nav{display:none;position:absolute;right:24px;top:70px;flex-direction:column;gap:0;background:#071217;border:1px solid var(--line);padding:10px 20px}.main-nav.open{display:flex}.main-nav a{padding:12px 0}.hero{min-height:640px;height:85vh;background-position:62% center}.hero-shade{background:linear-gradient(90deg,rgba(3,12,16,.88),rgba(3,12,16,.47)),linear-gradient(0deg,rgba(3,12,16,.54),transparent)}.hero-inner{margin-left:24px}.books-layout{grid-template-columns:1fr;gap:48px}.book-block,.book-block-reverse{max-width:610px;margin:auto}.book-block-featured{grid-column:auto;max-width:610px;grid-template-columns:.85fr 1.15fr;padding-top:30px}.questions{grid-template-columns:1fr;padding:40px 24px}{
-    width:150px;
-    height:205px;
-    justify-self:center;
-}.site-footer{grid-template-columns:1fr;padding:46px 24px 84px;gap:32px}.book-detail{grid-template-columns:1fr;gap:34px}.book-detail img{max-width:400px;margin:auto}}@media(max-width:520px){body{font-size:16px}.brand{font-size:1.08rem}.hero h1{font-size:3.15rem}.book-block,.book-block-reverse,.book-block-featured{grid-template-columns:1fr}.book-block .book-copy{order:1}.book-block .cover-link{order:2}.book-block-reverse .book-copy{order:1}.book-block-reverse .cover-link{order:2}.book-block-featured .book-copy{order:1;justify-self:auto}.book-block-featured .cover-link{order:2;justify-content:center}.cover-link img{max-width:300px;margin:auto}.contact-form{grid-template-columns:1fr}.contact-form label,.contact-form input{grid-column:1/-1}.closing .gold-script{font-size:1.5rem}}
-
+.home-panel{
+    padding:32px 20px
+}
+.home-panel p{
+    font-size:2rem;
+    line-height:1.03;
+    margin:0}
+.closing{
+    text-align:center;
+    padding:26px 20px 30px;
+    background:linear-gradient(180deg,#0a171c,#071217)
+}
+.closing p{
+    margin:0;
+    font-size:1.35rem
+}
+.closing .dots{
+    color:var(--gold);
+    letter-spacing:.35em;
+    margin:4px 0 8px
+}
+.closing .gold-script{
+    font-size:1.8rem
+}
+.site-footer{
+    display:grid;
+    grid-template-columns:1fr 1.25fr;
+    gap:80px;
+    position:relative;
+    padding:52px clamp(24px,10vw,160px) 76px;
+    background:#071217;
+    border-top:1px solid rgba(255,255,255,.04)
+}
+.footer-about h2,.contact-form h2{
+    font-size:1.35rem;
+    font-weight:400;
+    letter-spacing:.25em;margin:0 0 12px
+}
+.footer-about p{
+    max-width:260px;
+    line-height:1.35;
+    color:var(--muted)
+}
+.contact-form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 14px
+}
+.contact-form h2,.contact-form label[for="message"],
+.contact-form textarea,.contact-form button,
+.form-status{
+    grid-column:1/-1
+}
+.contact-form label{
+    font-family:Montserrat,Arial,sans-serif;
+    font-size:.66rem;
+    text-transform:uppercase;
+    letter-spacing:.13em;
+    color:var(--muted)
+}
+.contact-form input,.contact-form textarea{
+    width:100%;
+    border:1px solid rgba(194,173,145,.45);
+    background:rgba(255,255,255,.025);
+    color:var(--cream);
+    padding:11px;
+    font:inherit
+}
+.contact-form textarea{
+    resize:vertical
+}
+.contact-form button{
+    justify-self:start;
+    margin-top:6px;
+    border:1px solid rgba(194,173,145,.55);
+    background:transparent;
+    color:var(--cream);
+    padding:11px 20px;
+    font-family:Montserrat,Arial,sans-serif;
+    font-size:.67rem;
+    letter-spacing:.13em;
+    cursor:pointer
+}
+.contact-form button:hover{
+    background:rgba(167,122,67,.16)
+}
+.form-status{
+    min-height:1.2em;
+    margin:2px 0 0;
+    color:#c9ad86
+}
+.copyright{
+    position:absolute;
+    bottom:24px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:.8rem;
+    color:#a79e93;
+    white-space:nowrap
+}
+.book-page{
+    min-height:100vh;
+    background:linear-gradient(120deg,#071217,#0b1a20)
+}
+.book-page .site-header{
+    position:relative
+}
+.book-detail{
+    max-width:1120px;
+    margin:0 auto;
+    padding:45px 28px 80px;
+    display:grid;
+    grid-template-columns:minmax(260px,390px) 1fr;
+    gap:70px;
+    align-items:start
+}
+.book-detail img{
+    width:100%;
+    box-shadow:0 14px 40px rgba(0,0,0,.58)
+}
+.book-detail h1{
+    font-size:clamp(2.7rem,5vw,5rem);
+    font-weight:400;
+    line-height:.95;
+    margin:10px 0
+}
+.book-detail .eyebrow{
+    font-family:Montserrat,Arial,sans-serif;
+    color:#c59a65;
+    letter-spacing:.17em;
+    font-size:.72rem
+}
+.book-detail .description{
+    font-size:1.24rem;
+    line-height:1.5;
+    color:#ddd2c5
+}
+.back-link{
+    display:inline-block;
+    margin-top:24px;
+    border-bottom:1px solid var(--gold)
+    ;color:#cfb18b
+}
+@media(max-width:850px){
+    .site-header{
+        padding:22px 24px
+}
+    .menu-button{
+        display:block
+}
+    .main-nav{
+        display:none;
+        position:absolute;
+        right:24px;
+        top:70px;
+        flex-direction:column;
+        gap:0;
+        background:#071217;
+        border:1px solid var(--line);
+        padding:10px 20px
+}
+    .main-nav.open{
+        display:flex
+    }
+    .main-nav a{
+        padding:12px 0
+    }
+    .hero{
+        min-height:640px;
+        height:85vh;
+        background-position:62% center
+    }
+    .hero-shade{
+        background:linear-gradient(90deg,rgba(3,12,16,.88),rgba(3,12,16,.47)),
+            linear-gradient(0deg,rgba(3,12,16,.54),transparent)
+    }
+    .hero-inner{
+        margin-left:24px
+    }
+    .books-layout{
+        grid-template-columns:1fr;
+        gap:48px
+    }
+    .book-block,.book-block-reverse{
+        max-width:610px;
+        margin:auto
+    }
+    .book-block-featured{
+        grid-column:auto;
+        max-width:610px;
+        grid-template-columns:.85fr 1.15fr;
+        padding-top:30px
+    }
+    .questions{
+        grid-template-columns:1fr;
+        padding:40px 24px;
+        width:150px;
+        height:205px;
+        justify-self:center;
+}
+    .site-footer{
+        grid-template-columns:1fr;
+        padding:46px 24px 84px;
+        gap:32px
+    }
+    .book-detail{
+        grid-template-columns:1fr;
+        gap:34px
+    }
+    .book-detail img{
+        max-width:400px;
+        margin:auto
+    }
+}@media(max-width:520px){
+    body{
+        font-size:16px
+    }
+    .brand{
+        font-size:1.08rem
+    }
+    .hero h1{
+        font-size:3.15rem
+    }
+    .book-block,.book-block-reverse,.book-block-featured{
+        grid-template-columns:1fr
+    }
+    .book-block .book-copy{
+        order:1
+    }
+    .book-block .cover-link{
+        order:2
+    }
+    .book-block-reverse .book-copy{
+        order:1
+    }
+    .book-block-reverse .cover-link{
+        order:2
+    }
+    .book-block-featured .book-copy{
+        order:1;justify-self:auto
+    }
+    .book-block-featured .cover-link{
+        order:2;
+        justify-content:center
+    }
+    .cover-link img{
+        max-width:300px;
+        margin:auto
+    }
+    .contact-form{
+        grid-template-columns:1fr
+    }
+    .contact-form label,.contact-form input{
+        grid-column:1/-1
+    }
+    .closing .gold-script{
+        font-size:1.5rem
+    }
+}
 
 /* Keep the original two-book row unchanged and centre the third book beneath it. */
 @media (min-width: 851px){
@@ -100,3 +351,33 @@
   }
 }
 /* Background beneath the final straw-coloured section */
+/* Footer background */
+
+.closing,
+.site-footer{
+    position: relative;
+    background: transparent;
+}
+
+.closing::before,
+.site-footer::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            rgba(7,18,23,.60),
+            rgba(7,18,23,.80)
+        ),
+        url("images/footer-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.closing > *,
+.site-footer > *{
+    position: relative;
+    z-index: 1;
+}
