@@ -353,31 +353,21 @@
 /* Background beneath the final straw-coloured section */
 /* Footer background */
 
-.closing,
-.site-footer{
-    position: relative;
-    background: transparent;
+/* Keep the “Sometimes…” section plain dark */
+.closing{
+    background: linear-gradient(180deg,#0a171c,#071217);
 }
 
-.closing::before,
-.site-footer::before{
-    content: "";
-    position: absolute;
-    inset: 0;
+/* Background image only behind About the Author and Contact */
+.site-footer{
     background:
         linear-gradient(
             rgba(7,18,23,.60),
             rgba(7,18,23,.80)
         ),
         url("images/footer-background.png");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
-}
-
-.closing > *,
-.site-footer > *{
-    position: relative;
-    z-index: 1;
 }
