@@ -99,3 +99,17 @@
     justify-content:center;
   }
 }
+/* Background beneath the final straw-coloured section */
+.home-page {
+    background:
+        linear-gradient(
+            rgba(7, 18, 23, 0.84),
+            rgba(7, 18, 23, 0.92)
+        ),
+        url("images/footer-background.png") center bottom / cover no-repeat;
+}
+
+.home-page .closing,
+.home-page .site-footer {
+    background: transparent;
+}
