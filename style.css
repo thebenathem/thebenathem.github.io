@@ -1207,3 +1207,83 @@ a {
   width: min(760px, 100%);
   margin: 0 auto;
 }
+/* =========================================================
+   KIT READER LIST FORM
+   ========================================================= */
+
+.reader-list-section .formkit-form{
+    width:100% !important;
+    max-width:620px !important;
+    margin:34px auto 0 !important;
+    padding:0 !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+}
+
+.reader-list-section .formkit-fields{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:14px !important;
+}
+
+.reader-list-section .formkit-field{
+    width:100% !important;
+    margin:0 !important;
+}
+
+.reader-list-section .formkit-input{
+    width:100% !important;
+    min-height:54px !important;
+    padding:14px 18px !important;
+    background:rgba(229,221,209,.06) !important;
+    border:1px solid rgba(194,173,145,.58) !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    color:#e5ddd1 !important;
+    font-family:Montserrat,Arial,sans-serif !important;
+    font-size:.95rem !important;
+}
+
+.reader-list-section .formkit-input::placeholder{
+    color:#c7bbae !important;
+    opacity:.8 !important;
+}
+
+.reader-list-section .formkit-submit{
+    width:100% !important;
+    min-height:54px !important;
+    margin:0 !important;
+    background:transparent !important;
+    border:1px solid rgba(194,173,145,.58) !important;
+    border-radius:0 !important;
+    color:#e5ddd1 !important;
+    font-family:Montserrat,Arial,sans-serif !important;
+    letter-spacing:.15em !important;
+    text-transform:uppercase !important;
+    transition:background .25s ease,border-color .25s ease !important;
+}
+
+.reader-list-section .formkit-submit:hover{
+    background:rgba(167,122,67,.17) !important;
+    border-color:#c69a63 !important;
+}
+
+.reader-list-section .formkit-submit span{
+    font-size:0 !important;
+}
+
+.reader-list-section .formkit-submit span::after{
+    content:"SEND ME THE FREE EBOOK";
+    font-size:.68rem !important;
+}
+
+.reader-list-section .formkit-powered-by-convertkit{
+    filter:invert(1) grayscale(1);
+    opacity:.45 !important;
+}
+
+.reader-list-section .formkit-alert{
+    color:#e5ddd1 !important;
+    font-family:Montserrat,Arial,sans-serif !important;
+}
