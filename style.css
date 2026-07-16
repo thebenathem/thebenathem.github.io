@@ -407,6 +407,15 @@ a{
     line-height:1.5;
     color:#ddd2c5
 }
+
+.book-detail p a{
+    color:#c59a65;
+}
+
+.book-detail p a:hover{
+    text-decoration:underline;
+}
+
 .back-link{
     display:inline-block;
     margin-top:24px;
