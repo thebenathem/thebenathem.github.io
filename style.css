@@ -465,11 +465,16 @@ a{
     }
     .questions{
         grid-template-columns:1fr;
-        padding:40px 24px;
-        width:150px;
-        height:205px;
-        justify-self:center;
-}
+        gap:28px;
+        width:100%;
+        height:auto;
+        padding:42px 24px;
+        justify-self:stretch;
+    }
+    .tree-mark img{
+        width:180px;
+        max-width:70vw;
+    }
     .site-footer{
         grid-template-columns:1fr;
         padding:46px 24px 84px;
@@ -604,6 +609,9 @@ a{
 
 /* Background image only behind About the Author and Contact */
 .site-footer{
+    grid-template-columns:minmax(280px,420px) minmax(420px,700px);
+    justify-content:center;
+    align-items:start;
     background:
         linear-gradient(
             rgba(7,18,23,.60),
@@ -1021,25 +1029,78 @@ a{
     }
 }
 .feature-image{
+    position:relative;
     width:100%;
-    min-height:400px;
+    min-height:640px;
+    padding:70px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     background-image:url("images/mid-footer-background.png");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
 }
 
+.feature-image::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(7,18,23,.38);
+}
+
+.about-overlay{
+    position:relative;
+    z-index:1;
+    width:min(900px,90%);
+    margin:0 auto;
+    text-align:center;
+}
+
+.about-content{
+    max-width:650px;
+    margin:0 auto;
+    color:var(--cream);
+}
+
+.about-content h2{
+    margin:0 0 30px;
+    font-size:clamp(2.5rem,5vw,4.5rem);
+    font-weight:400;
+    line-height:1;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+}
+
+.about-content p{
+    margin:0 0 24px;
+    font-size:1.25rem;
+    line-height:1.65;
+}
+
+.about-content p:last-child{
+    margin-bottom:0;
+}
+
 @media(max-width:520px){
     .feature-image{
-        min-height:500px;
-        background-position:center;
+        min-height:560px;
+        padding:55px 22px;
+    }
+
+    .about-content p{
+        font-size:1.08rem;
     }
 }
-.feature-image{
-    width:100%;
-    height:440px !important;
-    min-height:0 !important;
-    background-size:cover !important;
-    background-position:center !important;
-    background-repeat:no-repeat !important;
+
+/* Centre the contact section */
+.site-footer{
+    display:block;
 }
+
+.contact-form{
+    width:min(760px,100%);
+    margin:0 auto;
+}
+
