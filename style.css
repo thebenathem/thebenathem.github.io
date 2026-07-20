@@ -1299,3 +1299,265 @@ a {
 .reader-list-section .formkit-alert-success *{
     color:#e5ddd1 !important;
 }
+
+/* =========================================================
+   ARC TEAM PAGE
+   ========================================================= */
+
+/* ==================================================
+   14. ARC Team application page
+   ================================================== */
+
+.arc-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(167, 122, 67, 0.1), transparent 32%),
+    linear-gradient(180deg, #071217 0%, #0a171c 100%);
+}
+
+.arc-page .site-header {
+  position: relative;
+}
+
+.arc-hero {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 56px 24px 10px;
+}
+
+.arc-hero .tiny-rule {
+  margin: 0 0 16px;
+}
+
+.arc-eyebrow {
+  font-family: Montserrat, Arial, sans-serif;
+  color: #c69a63;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+
+.arc-hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-weight: 400;
+  line-height: 0.98;
+  margin: 0;
+}
+
+.arc-intro-copy {
+  max-width: 560px;
+  margin: 22px auto 0;
+  color: #ddd2c5;
+  font-size: 1.22rem;
+  line-height: 1.5;
+}
+
+.arc-details {
+  max-width: 900px;
+  margin: 54px auto 0;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.arc-column h2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 18px;
+}
+
+.arc-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.arc-column li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 16px;
+  color: #ddd2c5;
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+.arc-column li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  color: var(--gold);
+  font-size: 0.75rem;
+}
+
+.arc-form-section {
+  max-width: 640px;
+  margin: 70px auto 0;
+  padding: 46px clamp(24px, 5vw, 48px) 90px;
+  border-top: 1px solid rgba(175, 137, 86, 0.28);
+}
+
+.arc-form-section h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 0 0 6px;
+}
+
+.arc-form-section > p {
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.02rem;
+  margin: 0 0 34px;
+}
+
+.arc-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+}
+
+.arc-form .arc-field-full,
+.arc-form fieldset,
+.arc-form .arc-checkbox-row,
+.arc-form button,
+.arc-form .form-status {
+  grid-column: 1/-1;
+}
+
+.arc-form label {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--muted);
+}
+
+.arc-form input[type="text"],
+.arc-form input[type="email"],
+.arc-form textarea {
+  width: 100%;
+  border: 1px solid rgba(194, 173, 145, 0.45);
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--cream);
+  padding: 11px;
+  font: inherit;
+  margin-top: 4px;
+}
+
+.arc-form textarea {
+  resize: vertical;
+}
+
+.arc-form fieldset {
+  border: 1px solid rgba(194, 173, 145, 0.3);
+  padding: 14px 16px 16px;
+  margin: 6px 0 0;
+}
+
+.arc-form legend {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--muted);
+  padding: 0 6px;
+}
+
+.arc-checkbox-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 6px;
+}
+
+.arc-checkbox-grid label,
+.arc-checkbox-row label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1.02rem;
+  color: #ddd2c5;
+}
+
+.arc-form input[type="checkbox"] {
+  accent-color: var(--gold);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.arc-checkbox-row {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(175, 137, 86, 0.2);
+}
+
+.arc-checkbox-row label {
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.arc-form button {
+  justify-self: center;
+  margin-top: 22px;
+  border: 1px solid rgba(194, 173, 145, 0.55);
+  background: transparent;
+  color: var(--cream);
+  padding: 13px 30px;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.arc-form button:hover,
+.arc-form button:focus-visible {
+  background: rgba(167, 122, 67, 0.17);
+  border-color: #c69a63;
+  transform: translateY(-2px);
+}
+
+.arc-form button:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+.arc-form .form-status {
+  text-align: center;
+  min-height: 1.2em;
+  margin: 14px 0 0;
+  color: #c9ad86;
+}
+
+.arc-page .back-link {
+  display: block;
+  text-align: center;
+  margin: 0 0 70px;
+}
+
+@media (max-width: 700px) {
+  .arc-details {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .arc-form {
+    grid-template-columns: 1fr;
+  }
+}

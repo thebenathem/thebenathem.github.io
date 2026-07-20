@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Join Ben Athem's ARC Team — read new queer sci-fi and fantasy romance releases early in exchange for an honest review.">
+  <title>Join the ARC Team | Ben Athem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=11">
+</head>
+<body class="arc-page">
+  <header class="site-header">
+    <a class="brand" href="index.html">BEN ATHEM</a>
+    <nav class="main-nav" style="display:flex" aria-label="Main navigation">
+      <a href="index.html#books">Books</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#reader-list">Sign Up</a>
+      <a href="arc-team.html" aria-current="page">ARC Team</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="arc-hero">
+      <div class="tiny-rule">✦</div>
+      <p class="arc-eyebrow">For the readers who get there first</p>
+      <h1>Join the ARC Team</h1>
+      <p class="arc-intro-copy">
+        ARC readers get my books before anyone else, in exchange for an
+        honest review when release day comes. No deadlines, no pressure
+        to love it &mdash; just readers who care about quiet, character-driven
+        stories and are willing to tell other readers what they found.
+      </p>
+    </section>
+
+    <section class="arc-details">
+      <div class="arc-column">
+        <h2>What you'll get</h2>
+        <ul>
+          <li>An early copy of each new release, usually a few weeks before publication</li>
+          <li>Occasional notes on where a story came from, sent to ARC readers first</li>
+          <li>A quiet corner of the process most readers don't see</li>
+        </ul>
+      </div>
+      <div class="arc-column">
+        <h2>What I'm asking</h2>
+        <ul>
+          <li>Read in your own time &mdash; before release if you can manage it</li>
+          <li>Leave an honest review wherever you usually post them</li>
+          <li>Tell me if a book wasn't for you. Honest feedback helps more than perfect stars</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="arc-form-section">
+      <h2>Apply</h2>
+      <p>Takes about a minute. I read every application myself.</p>
+
+      <form
+        class="arc-form"
+        id="arc-form"
+        action="https://formspree.io/f/xjgnboeo"
+        method="POST"
+      >
+        <div>
+          <label for="arc-name">Name</label>
+          <input id="arc-name" name="name" type="text" autocomplete="name" required>
+        </div>
+
+        <div>
+          <label for="arc-email">Email</label>
+          <input id="arc-email" name="email" type="email" autocomplete="email" required>
+        </div>
+
+        <fieldset>
+          <legend>Where do you usually post reviews?</legend>
+          <div class="arc-checkbox-grid">
+            <label><input type="checkbox" name="review_platforms" value="Goodreads"> Goodreads</label>
+            <label><input type="checkbox" name="review_platforms" value="Amazon"> Amazon</label>
+            <label><input type="checkbox" name="review_platforms" value="StoryGraph"> StoryGraph</label>
+            <label><input type="checkbox" name="review_platforms" value="TikTok / Instagram"> TikTok / Instagram</label>
+            <label><input type="checkbox" name="review_platforms" value="Somewhere else"> Somewhere else</label>
+          </div>
+        </fieldset>
+
+        <div class="arc-field-full">
+          <label for="arc-note">Anything you'd like me to know? (optional)</label>
+          <textarea id="arc-note" name="note" rows="4" placeholder="A link to your review profile, what draws you to queer sci-fi &amp; fantasy romance, anything at all"></textarea>
+        </div>
+
+        <div class="arc-checkbox-row">
+          <label>
+            <input type="checkbox" name="consent" value="Understood" required>
+            I understand ARC copies are shared in exchange for an honest review, not a positive one.
+          </label>
+        </div>
+
+        <input type="hidden" name="_subject" value="New ARC Team application from the Ben Athem site">
+
+        <button type="submit">Apply to the ARC Team</button>
+
+        <p class="form-status" id="arc-form-status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <a class="back-link" href="index.html">&larr; Return home</a>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("arc-form");
+      const status = document.getElementById("arc-form-status");
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.textContent = "SENDING...";
+        status.textContent = "";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+              "Accept": "application/json"
+            }
+          });
+
+          if (response.ok) {
+            form.reset();
+            status.textContent = "Application received. Thank you for wanting to be part of this.";
+          } else {
+            status.textContent = "Something went wrong. Please try again.";
+          }
+        } catch (error) {
+          status.textContent = "Something went wrong. Please try again.";
+        }
+
+        button.disabled = false;
+        button.textContent = "Apply to the ARC Team";
+      });
+    });
+  </script>
+</body>
+</html>
