@@ -1420,7 +1420,7 @@ a {
 .arc-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px 14px;
+  gap: 22px 18px;
 }
 
 .arc-form .arc-field-full,
@@ -1443,12 +1443,29 @@ a {
 .arc-form input[type="email"],
 .arc-form textarea {
   width: 100%;
-  border: 1px solid rgba(194, 173, 145, 0.45);
-  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(194, 173, 145, 0.4);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.035);
   color: var(--cream);
-  padding: 11px;
+  padding: 13px 14px;
   font: inherit;
-  margin-top: 4px;
+  margin-top: 6px;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.arc-form input[type="text"]:hover,
+.arc-form input[type="email"]:hover,
+.arc-form textarea:hover {
+  border-color: rgba(194, 173, 145, 0.65);
+}
+
+.arc-form input[type="text"]:focus,
+.arc-form input[type="email"]:focus,
+.arc-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 3px rgba(167, 122, 67, 0.18);
 }
 
 .arc-form textarea {
@@ -1456,9 +1473,10 @@ a {
 }
 
 .arc-form fieldset {
-  border: 1px solid rgba(194, 173, 145, 0.3);
-  padding: 14px 16px 16px;
-  margin: 6px 0 0;
+  border: 1px solid rgba(194, 173, 145, 0.28);
+  border-radius: 6px;
+  padding: 16px 18px 18px;
+  margin: 0;
 }
 
 .arc-form legend {
@@ -1467,81 +1485,93 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.13em;
   color: var(--muted);
-  padding: 0 6px;
+  padding: 0 8px;
 }
 
 .arc-checkbox-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 22px;
-  margin-top: 6px;
+  gap: 12px 26px;
+  margin-top: 8px;
 }
 
 .arc-checkbox-grid label,
 .arc-checkbox-row label {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   font-family: "Cormorant Garamond", Georgia, serif;
   text-transform: none;
   letter-spacing: 0;
-  font-size: 1.02rem;
+  font-size: 1.04rem;
   color: #ddd2c5;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.arc-checkbox-grid label:hover,
+.arc-checkbox-row label:hover {
+  color: var(--cream);
 }
 
 .arc-form input[type="checkbox"] {
   accent-color: var(--gold);
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .arc-checkbox-row {
-  margin-top: 18px;
-  padding-top: 16px;
+  margin-top: 4px;
+  padding-top: 20px;
   border-top: 1px solid rgba(175, 137, 86, 0.2);
 }
 
 .arc-checkbox-row label {
   align-items: flex-start;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .arc-form button {
   justify-self: center;
-  margin-top: 22px;
-  border: 1px solid rgba(194, 173, 145, 0.55);
-  background: transparent;
+  margin-top: 24px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: rgba(167, 122, 67, 0.12);
   color: var(--cream);
-  padding: 13px 30px;
+  padding: 15px 42px;
   font-family: Montserrat, Arial, sans-serif;
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   cursor: pointer;
   transition:
     background 0.25s ease,
     border-color 0.25s ease,
-    transform 0.25s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .arc-form button:hover,
 .arc-form button:focus-visible {
-  background: rgba(167, 122, 67, 0.17);
+  background: rgba(167, 122, 67, 0.32);
   border-color: #c69a63;
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(167, 122, 67, 0.25);
 }
 
 .arc-form button:disabled {
   opacity: 0.6;
   cursor: default;
   transform: none;
+  box-shadow: none;
 }
 
 .arc-form .form-status {
   text-align: center;
   min-height: 1.2em;
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   color: #c9ad86;
 }
 
