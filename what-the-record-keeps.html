@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>What the Record Keeps | Ben Athem</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#e9e1c8;
+    --paper-dark:#dcd2ae;
+    --paper-edge:#c9bd93;
+    --ink:#2b2621;
+    --ink-soft:#4a423a;
+    --stamp-red:#8a2e26;
+    --brass:#96803f;
+    --redact:#231f1c;
+  }
+
+  *{box-sizing:border-box;}
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:#2c2822;
+    font-family:"Courier Prime", "Courier New", monospace;
+    color:var(--ink);
+  }
+
+  body{
+    padding:56px 16px 90px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .page{
+    position:relative;
+    width:100%;
+    max-width:720px;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(150,128,63,0.10), transparent 40%),
+      radial-gradient(circle at 88% 82%, rgba(138,46,38,0.06), transparent 45%),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 3px),
+      linear-gradient(var(--paper), var(--paper-dark));
+    box-shadow:
+      0 0 0 1px var(--paper-edge),
+      0 20px 60px rgba(0,0,0,0.55),
+      inset 0 0 80px rgba(90,74,40,0.18);
+    padding:52px 56px 70px;
+    transform:rotate(-0.35deg);
+  }
+
+  .page::before{
+    content:"";
+    position:absolute;
+    inset:10px;
+    border:1px solid rgba(43,38,33,0.35);
+    pointer-events:none;
+  }
+
+  .stamp{
+    font-family:"Special Elite", monospace;
+    position:absolute;
+    color:var(--stamp-red);
+    border:3px solid var(--stamp-red);
+    padding:6px 12px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:13px;
+    opacity:0.72;
+    mix-blend-mode:multiply;
+    border-radius:4px;
+    pointer-events:none;
+  }
+
+  .stamp-top{
+    top:34px;
+    right:34px;
+    transform:rotate(6deg);
+    font-size:11px;
+    letter-spacing:1.5px;
+  }
+
+  .stamp-open{
+    position:static;
+    display:inline-block;
+    margin-top:34px;
+    transform:rotate(-4deg);
+    font-size:20px;
+    padding:10px 18px;
+    line-height:1.3;
+    text-align:center;
+  }
+
+  .letterhead{
+    font-family:"Special Elite", monospace;
+    text-align:center;
+    font-size:13px;
+    letter-spacing:4px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    margin-bottom:4px;
+  }
+
+  .letterhead span{
+    display:block;
+    font-size:10.5px;
+    letter-spacing:2px;
+    margin-top:4px;
+    color:var(--ink-soft);
+    opacity:0.8;
+  }
+
+  .rule{
+    height:0;
+    border-top:2px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    margin:14px 0 22px;
+  }
+
+  .rule-thin{
+    height:0;
+    border-top:1px solid var(--brass);
+    margin:30px 0;
+    opacity:0.6;
+  }
+
+  table.meta{
+    width:100%;
+    border-collapse:collapse;
+    font-size:11.5px;
+    margin-top:18px;
+    color:var(--ink-soft);
+  }
+
+  table.meta td{
+    padding:4px 6px;
+    border:1px solid rgba(43,38,33,0.35);
+    vertical-align:top;
+  }
+
+  table.meta td.label{
+    font-family:"Special Elite", monospace;
+    letter-spacing:1px;
+    width:15%;
+    color:var(--ink);
+    background:rgba(43,38,33,0.045);
+  }
+
+  table.meta td.redacted{
+    background:var(--redact);
+    color:var(--redact);
+    user-select:none;
+  }
+
+  h1.title{
+    font-family:"Special Elite", monospace;
+    text-align:center;
+    font-size:26px;
+    letter-spacing:3px;
+    margin:34px 0 6px;
+    text-transform:uppercase;
+    color:var(--ink);
+  }
+
+  p.subtitle{
+    text-align:center;
+    font-size:11.5px;
+    letter-spacing:1.5px;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+    font-style:italic;
+  }
+
+  article{
+    font-size:15px;
+    line-height:1.85;
+    margin-top:26px;
+  }
+
+  article p{
+    margin:0 0 18px;
+    text-align:justify;
+    text-indent:2em;
+  }
+
+  article p.no-indent{
+    text-indent:0;
+  }
+
+  .exhibit{
+    font-family:"Special Elite", monospace;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--stamp-red);
+    border:1px solid var(--stamp-red);
+    display:inline-block;
+    padding:4px 10px;
+    margin:8px 0 18px;
+    opacity:0.85;
+  }
+
+  .divider{
+    text-align:center;
+    letter-spacing:8px;
+    color:var(--ink-soft);
+    opacity:0.55;
+    margin:8px 0 24px;
+    font-size:13px;
+  }
+
+  .closing{
+    margin-top:10px;
+  }
+
+  .sign-off{
+    margin-top:40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    font-size:11px;
+    color:var(--ink-soft);
+    letter-spacing:1px;
+  }
+
+  .sign-off .initials{
+    font-family:"Special Elite", monospace;
+    font-size:16px;
+    color:var(--ink);
+    border-bottom:1px solid var(--ink-soft);
+    padding-bottom:2px;
+  }
+
+  .folio{
+    text-align:center;
+    margin-top:28px;
+    font-size:10.5px;
+    letter-spacing:3px;
+    color:var(--ink-soft);
+    opacity:0.7;
+  }
+
+  @media (max-width:640px){
+    .page{padding:34px 24px 50px;}
+    h1.title{font-size:20px; letter-spacing:2px;}
+    article{font-size:14px;}
+    .stamp-top{font-size:9.5px; top:20px; right:20px; padding:4px 8px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="stamp stamp-top">archive copy &mdash; do not transmit</div>
+
+  <div class="letterhead">
+    Observation Program
+    <span>Central Archive &middot; Records Division &middot; Unclassified Retention Wing</span>
+  </div>
+
+  <div class="rule"></div>
+
+  <table class="meta">
+    <tr>
+      <td class="label">file no.</td>
+      <td>10,742</td>
+      <td class="label">status</td>
+      <td>unfiled &mdash; personal retention</td>
+    </tr>
+    <tr>
+      <td class="label">clearance</td>
+      <td class="redacted">████████████</td>
+      <td class="label">retention</td>
+      <td>indefinite</td>
+    </tr>
+    <tr>
+      <td class="label">subject</td>
+      <td colspan="3">pattern recurrence &mdash; three case fragments, cross-referenced by the undersigned</td>
+    </tr>
+  </table>
+
+  <h1 class="title">What the Record Keeps</h1>
+  <p class="subtitle">&mdash; being a private annex, not entered into the general archive &mdash;</p>
+
+  <article>
+
+    <p class="no-indent">There is no word in your languages for what I do, so I have borrowed several and none of them fit. <em>Archivist</em> is close. <em>Historian</em> implies an ending, and my work has none. The kindest translation, offered to me once by a field observer half my age and twice my optimism, was <em>the one who remembers so the rest of us don't have to.</em></p>
+
+    <p>I did not correct him. It wasn't wrong. It also wasn't the whole of it.</p>
+
+    <p>For longer than any single civilization I have catalogued, it has been my duty to receive the reports. Every observer we send out into the turning dark &mdash; into aquariums and asteroid belts and the undersides of forests &mdash; writes one eventually, whether they mean to or not. Most reports are dry. Diet. Migration. Mating ritual, social structure, technological inflection point. I file them without reading past the first page, because that is the job, and because after enough centuries even wonder becomes a filing system.</p>
+
+    <p>But some reports arrive already worn soft at the corners, as if the hand that wrote them had held on too long before letting go. Those, I read twice. A few, I never file at all. I keep them in the drawer that isn't supposed to exist, the one every archivist has and no manual mentions, and on the nights when the Archive's long silence gets to be too much even for someone who chose it, I take them out.</p>
+
+    <p class="no-indent">Tonight, three.</p>
+
+    <div class="divider">&middot; &middot; &middot;</div>
+
+    <div class="exhibit">Exhibit A &mdash; Ref. 124, Crescent Bay Assignment</div>
+
+    <p class="no-indent">The first file is small. Assignment one-two-four, filed under a coastal designation so minor it does not appear on any star chart a casual traveler would consult &mdash; a blue-green nothing of a world, the kind we favor precisely because nothing important is supposed to happen there. The observer requested it himself. Wanted somewhere quiet. Somewhere he could watch a single species do the unremarkable, extraordinary work of being alive without an audience.</p>
+
+    <p>His early entries are exactly what you'd expect from someone freshly trained: methodical, faintly bloodless, in love with the word <em>specimen.</em> He writes at length about an eight-limbed creature named &mdash; and I remember laughing out loud, alone, at my desk, the first time I read this &mdash; <em>Andromeda,</em> after a princess who was chained to a rock and rescued by someone who had absolutely no professional business doing so. He does not notice the irony. Not yet.</p>
+
+    <p>Somewhere around page forty the handwriting changes. Not literally &mdash; we don't write by hand, not anymore, not for centuries &mdash; but the <em>voice</em> does. The clinical distance thins out entry by entry, the way frost thins off a window when someone inside has started keeping the heat on for a reason that isn't the weather. By the report's final third he has stopped calling it fieldwork. He does not call it anything at all, which is its own kind of confession.</p>
+
+    <p>I do not know how his assignment ends. He stopped filing before the last chapter. That is either the worst sign an archivist can receive, or the best one, and I have decided &mdash; because after this many centuries I am allowed a few private decisions &mdash; to believe it is the best one. Some case studies you leave open not because the story is unfinished, but because you are still hoping for the ending you already know.</p>
+
+    <div class="divider">&middot; &middot; &middot;</div>
+
+    <div class="exhibit">Exhibit B &mdash; Waywarden Log, Hestia Transit Route</div>
+
+    <p class="no-indent">The second file did not come to me through the Program at all. It came sideways, the way the important things often do &mdash; passed hand to hand along the great commercial arteries that the road-builders keep threaded between ten thousand worlds, until it reached a courier who reached an archivist who owed me a favor older than her homeworld's youngest moon.</p>
+
+    <p>It is, on its surface, a maintenance log. The roads are old &mdash; older than most of the empires that now depend on them &mdash; and something that old requires people whose entire lives are dedicated to noticing when a bridge between stars is beginning, quietly, to fail. They are a humble order. They do not seek recognition, and mostly they do not receive it, which by their own philosophy is the highest compliment their work can earn.</p>
+
+    <p>This particular Wayfarer's log begins, unusually, with a name that is not a place or a route designation, but a person &mdash; a technician reassigned from an orbital transfer hub on a colony whose founders had, generations back, come from somewhere very far away and very blue. <em>Hestia,</em> the log calls the world he left. I had to look it up. Agricultural cylinders. Habitat rings. The particular loneliness of a world built entirely for continuing rather than for arriving anywhere.</p>
+
+    <p>The log does what maintenance logs do &mdash; records drift, stress fractures, the slow entropy of things built to outlast their builders. And then, without any narrative flourish at all, without the writer seeming to notice he's done it, it stops being about the road and starts being about the man walking it. The last entry I have access to notes, in the same flat administrative register as everything before it, that the technician has been offered permanent reassignment and has not yet accepted.</p>
+
+    <p>I do not know if he stayed. Bureaucracies this old are better at building bridges than at telling you whether anyone crossed them.</p>
+
+    <div class="divider">&middot; &middot; &middot;</div>
+
+    <div class="exhibit">Exhibit C &mdash; Vael Salvage, Daedalus Incident</div>
+
+    <p class="no-indent">The third file nearly wasn't a file at all. It arrived not as a report but as wreckage &mdash; the record equivalent of a survivor pulled from water, still coughing.</p>
+
+    <p>There had been a collision. Two vessels, one of them alive in the particular way that some very old worlds build their ships, grown rather than assembled, capable of hearing a distress call the way you or I would hear our own name spoken in a crowded room. Its pilot belonged to an order I have crossed paths with only twice in my very long career &mdash; Keepers, they call themselves, tenders of a world so thick with interwoven life that its inhabitants claim to hear the forest thinking. They do not use that word, <em>thinking.</em> They use a word that translates, imperfectly, as <em>Resonance,</em> and they insist it isn't mysticism, it's just paying attention closely enough that the line between listening and belonging disappears.</p>
+
+    <p>The Keeper on record diverted from his route &mdash; against every protocol his superiors would have cited, had they been there to cite them &mdash; because something in that dying colony vessel was, in his word, <em>singing wrong.</em> What he found aboard the wreck was a small crew bound for a terraformed world named for a suitably old story about a father who built wings and a son who did not listen to him. <em>Daedalus.</em> Someone, somewhere, still has a sense of humor about naming ships after cautionary tales.</p>
+
+    <p>Among the survivors: a groundskeeper. A man who had spent his short posting tending a greenhouse in the hollow of a drifting station, growing things meant for a planet he would likely never see finished. The Keeper's log describes him the way the roadbuilder described his technician and the exobiologist described his octopus &mdash; which is to say, badly, and at increasing length, and with a carefulness that gives away far more than the words themselves do.</p>
+
+    <p>This file, too, ends before I would like it to. The Program's reach does not extend as far as Vael's, and what happened after the rescue belongs to a records office I do not have clearance to open. I have requested access four times. I expect to request it a fifth.</p>
+
+    <div class="rule-thin"></div>
+
+    <p class="no-indent closing">Here is the thing about my drawer, the one that isn't supposed to exist.</p>
+
+    <p>None of these three ever met each other. Different arms of the galaxy, different centuries by more than one calendar, different rules governing what their people are and aren't permitted to feel about the things they were sent to study. If you laid their star charts side by side, you would find no shared coordinate, no crossing point, no reason to think of them as anything but strangers to one another.</p>
+
+    <p class="no-indent">And yet.</p>
+
+    <p>I have read ten thousand reports in my long tenure, filed nine thousand nine hundred and some of them without a second thought, and every single time &mdash; every single time &mdash; the ones that survive the filing cabinet are the ones where the watcher stopped being able to watch from a safe distance. An exobiologist who forgot his own protocols in front of a shy octopus and the man who named her. A road-keeper who found, at the quiet end of an ancient bridge, someone worth staying for. A Keeper of living worlds who broke his own order's oldest rule &mdash; <em>not every imbalance belongs to you</em> &mdash; because a stranger's voice, one he had no professional reason to recognize, sounded like something worth saving anyway.</p>
+
+    <p>My superiors would call this a pattern worth flagging. A vulnerability in the observation model. Something to be trained out of the next generation before it costs us an asset, or a secret, or an entire species' careful anonymity.</p>
+
+    <p>I have decided, in my very long, very private capacity, to call it something else.</p>
+
+    <p>I do not know if any of the three ever finished their stories the way I hope they did. The Archive is patient but it is not omniscient, and some doors close behind the people who walk through them, the way doors are supposed to. What I know is only this: across a thousand worlds and as many centuries, whenever one of us gets close enough to something we were only meant to observe, the same thing happens. We stop being able to look away.</p>
+
+    <p class="no-indent">I used to think that was the failure the manuals warned me about.</p>
+
+    <p>Lately &mdash; and I say <em>lately</em> the way you might say it about a decade, or a life &mdash; I've come to think it might be the only finding in this whole Archive that was ever worth the paper.</p>
+
+    <p>I am old enough to have been the one, once, who forgot to file the ending.</p>
+
+    <p class="no-indent">I do not regret it. I have simply never told anyone why.</p>
+
+  </article>
+
+  <div style="text-align:center;">
+    <div class="stamp stamp-open">status: open<br>file not closed</div>
+  </div>
+
+  <div class="sign-off">
+    <div>recorded by: <span class="initials">&mdash; unsigned &mdash;</span></div>
+    <div>copy 1 of 1</div>
+  </div>
+
+  <div class="folio">&mdash; end of annex &mdash;</div>
+
+  <div style="text-align:center; margin-top:36px;">
+    <a href="extras.html" style="font-family:'Courier Prime','Courier New',monospace; color:var(--ink-soft); border-bottom:1px solid var(--brass); text-decoration:none; padding-bottom:2px;">&larr; Back to Extras</a>
+  </div>
+
+</div>
+</body>
+</html>
