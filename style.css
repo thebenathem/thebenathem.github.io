@@ -199,29 +199,6 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: 60px;
 }
-.book-group {
-  max-width: 1240px;
-  margin: 0 auto;
-}
-.book-group + .book-group {
-  margin-top: 64px;
-  padding-top: 48px;
-  border-top: 1px solid rgba(207, 177, 139, 0.18);
-}
-.book-group-heading {
-  text-align: center;
-  color: var(--cream);
-  font-weight: 400;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  font-size: 1.05rem;
-  margin: 0;
-}
-.book-group .tiny-rule {
-  text-align: center;
-  color: var(--gold);
-  margin: 8px 0 30px;
-}
 .book-block {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
@@ -1443,7 +1420,7 @@ a {
 .arc-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px 18px;
+  gap: 8px 14px;
 }
 
 .arc-form .arc-field-full,
@@ -1466,29 +1443,12 @@ a {
 .arc-form input[type="email"],
 .arc-form textarea {
   width: 100%;
-  border: 1px solid rgba(194, 173, 145, 0.4);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(194, 173, 145, 0.45);
+  background: rgba(255, 255, 255, 0.025);
   color: var(--cream);
-  padding: 13px 14px;
+  padding: 11px;
   font: inherit;
-  margin-top: 6px;
-  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.arc-form input[type="text"]:hover,
-.arc-form input[type="email"]:hover,
-.arc-form textarea:hover {
-  border-color: rgba(194, 173, 145, 0.65);
-}
-
-.arc-form input[type="text"]:focus,
-.arc-form input[type="email"]:focus,
-.arc-form textarea:focus {
-  outline: none;
-  border-color: var(--gold);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 0 3px rgba(167, 122, 67, 0.18);
+  margin-top: 4px;
 }
 
 .arc-form textarea {
@@ -1496,10 +1456,9 @@ a {
 }
 
 .arc-form fieldset {
-  border: 1px solid rgba(194, 173, 145, 0.28);
-  border-radius: 6px;
-  padding: 16px 18px 18px;
-  margin: 0;
+  border: 1px solid rgba(194, 173, 145, 0.3);
+  padding: 14px 16px 16px;
+  margin: 6px 0 0;
 }
 
 .arc-form legend {
@@ -1508,93 +1467,81 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.13em;
   color: var(--muted);
-  padding: 0 8px;
+  padding: 0 6px;
 }
 
 .arc-checkbox-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 26px;
-  margin-top: 8px;
+  gap: 10px 22px;
+  margin-top: 6px;
 }
 
 .arc-checkbox-grid label,
 .arc-checkbox-row label {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   font-family: "Cormorant Garamond", Georgia, serif;
   text-transform: none;
   letter-spacing: 0;
-  font-size: 1.04rem;
+  font-size: 1.02rem;
   color: #ddd2c5;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.arc-checkbox-grid label:hover,
-.arc-checkbox-row label:hover {
-  color: var(--cream);
 }
 
 .arc-form input[type="checkbox"] {
   accent-color: var(--gold);
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
-  cursor: pointer;
 }
 
 .arc-checkbox-row {
-  margin-top: 4px;
-  padding-top: 20px;
+  margin-top: 18px;
+  padding-top: 16px;
   border-top: 1px solid rgba(175, 137, 86, 0.2);
 }
 
 .arc-checkbox-row label {
   align-items: flex-start;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .arc-form button {
   justify-self: center;
-  margin-top: 24px;
-  border: 1px solid var(--gold);
-  border-radius: 999px;
-  background: rgba(167, 122, 67, 0.12);
+  margin-top: 22px;
+  border: 1px solid rgba(194, 173, 145, 0.55);
+  background: transparent;
   color: var(--cream);
-  padding: 15px 42px;
+  padding: 13px 30px;
   font-family: Montserrat, Arial, sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.16em;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   cursor: pointer;
   transition:
     background 0.25s ease,
     border-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.25s ease;
 }
 
 .arc-form button:hover,
 .arc-form button:focus-visible {
-  background: rgba(167, 122, 67, 0.32);
+  background: rgba(167, 122, 67, 0.17);
   border-color: #c69a63;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(167, 122, 67, 0.25);
 }
 
 .arc-form button:disabled {
   opacity: 0.6;
   cursor: default;
   transform: none;
-  box-shadow: none;
 }
 
 .arc-form .form-status {
   text-align: center;
   min-height: 1.2em;
-  margin: 16px 0 0;
+  margin: 14px 0 0;
   color: #c9ad86;
 }
 
@@ -1616,66 +1563,50 @@ a {
 }
 
 /* ==================================================
-   Extras hub
+   15. Companion pieces — connected extras
    ================================================== */
-.extras-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 28px;
-  max-width: 1000px;
-  margin: 0 auto 40px;
-  padding: 0 24px;
+
+.preview-landing.story-landing {
+  grid-template-columns: minmax(0, 640px);
+  justify-items: center;
+  text-align: center;
 }
 
-.extras-card {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 28px 24px;
-  border: 1px solid rgba(207, 177, 139, 0.35);
-  background: rgba(255, 255, 255, 0.02);
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+.preview-invitation a {
+  color: #c69a63;
+  border-bottom: 1px solid rgba(198, 154, 99, 0.4);
 }
 
-a.extras-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--gold);
+.preview-invitation a:hover {
+  border-color: #c69a63;
 }
 
-.extras-card-tag {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
+.prologue-text .story-tag {
+  display: block;
+  text-align: center;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #80643f;
+  margin: 50px 0 26px;
 }
 
-.extras-card h2 {
-  margin: 4px 0 2px;
-  font-size: 1.4rem;
+.prologue-text em {
+  color: #4a3a24;
 }
 
-.extras-card p {
-  margin: 0 0 10px;
-  opacity: 0.85;
-  flex-grow: 1;
+.preview-ending p a {
+  color: #80643f;
+  border-bottom: 1px solid rgba(128, 100, 63, 0.42);
 }
 
-.extras-card-link {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  border-bottom: 1px solid var(--gold);
-  align-self: flex-start;
-  color: #cfb18b;
+.preview-ending p a:hover {
+  border-color: #80643f;
 }
 
-.extras-card-soon {
-  opacity: 0.55;
-}
-
-.extras-card-soon .extras-card-link {
-  border-bottom-color: transparent;
+@media (max-width: 520px) {
+  .prologue-text .story-tag {
+    margin: 38px 0 20px;
+  }
 }
