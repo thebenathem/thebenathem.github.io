@@ -16,6 +16,7 @@
 }
 html {
   scroll-behavior: smooth;
+  background: var(--ink);
 }
 body {
   margin: 0;
@@ -198,6 +199,29 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
+}
+.book-group {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.book-group + .book-group {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(207, 177, 139, 0.18);
+}
+.book-group-heading {
+  text-align: center;
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  margin: 0;
+}
+.book-group .tiny-rule {
+  text-align: center;
+  color: var(--gold);
+  margin: 8px 0 30px;
 }
 .book-block {
   display: grid;
