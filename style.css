@@ -1610,3 +1610,68 @@ a {
     margin: 38px 0 20px;
   }
 }
+
+/* ==================================================
+   Extras hub
+   ================================================== */
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  padding: 0 24px;
+}
+
+.extras-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 28px 24px;
+  border: 1px solid rgba(207, 177, 139, 0.35);
+  background: rgba(255, 255, 255, 0.02);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+a.extras-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+.extras-card-tag {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.extras-card h2 {
+  margin: 4px 0 2px;
+  font-size: 1.4rem;
+}
+
+.extras-card p {
+  margin: 0 0 10px;
+  opacity: 0.85;
+  flex-grow: 1;
+}
+
+.extras-card-link {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--gold);
+  align-self: flex-start;
+  color: #cfb18b;
+}
+
+.extras-card-soon {
+  opacity: 0.55;
+}
+
+.extras-card-soon .extras-card-link {
+  border-bottom-color: transparent;
+}
