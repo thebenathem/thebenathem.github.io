@@ -309,17 +309,17 @@ a {
 }
 .landscape-divider {
   position: relative;
-  min-height: clamp(180px, 20vw, 300px);
+  min-height: clamp(210px, 24vw, 360px);
   overflow: hidden;
   background:
     linear-gradient(
       180deg,
-      rgba(7, 18, 23, 0.22) 0%,
-      rgba(7, 18, 23, 0) 28%,
-      rgba(7, 18, 23, 0) 72%,
-      rgba(7, 18, 23, 0.48) 100%
+      rgba(7, 18, 23, 0.18) 0%,
+      rgba(7, 18, 23, 0) 24%,
+      rgba(7, 18, 23, 0) 70%,
+      rgba(7, 18, 23, 0.34) 100%
     ),
-    url("images/web/ben-athem-landscape-banner.webp") center 56% / cover no-repeat;
+    url("images/web/ben-athem-landscape-banner.webp") center bottom / cover no-repeat;
   border-top: 1px solid rgba(175, 137, 86, 0.18);
   border-bottom: 1px solid rgba(175, 137, 86, 0.22);
 }
@@ -336,8 +336,8 @@ a {
 
 @media (max-width: 600px) {
   .landscape-divider {
-    min-height: 180px;
-    background-position: center 54%;
+    min-height: 190px;
+    background-position: center bottom;
   }
 }
 /* ==================================================
