@@ -18,7 +18,8 @@
 <body class="book-page">
   <header class="site-header">
     <a class="brand" href="index.html">BEN ATHEM</a>
-    <nav class="main-nav" style="display:flex">
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav id="main-nav" class="main-nav" aria-label="Main navigation">
       <a href="index.html#books">Books</a>
       <a href="index.html#about">About</a>
       <a href="index.html#reader-list">Sign Up</a>
@@ -29,9 +30,9 @@
   </header>
 
   <main class="book-detail">
-    <img src="images/where-starlight-finds-you.png" alt="Where Starlight Finds You by Ben Athem book cover">
+    <img src="images/web/where-starlight-finds-you.webp" alt="Where Starlight Finds You by Ben Athem book cover">
     <div>
-      <p class="eyebrow">COMING 2027</p>
+      <p class="eyebrow">AVAILABLE NOW</p>
       <h1>Where Starlight<br>Finds You</h1>
 
       <p class="description">The war is over.</p>
@@ -49,8 +50,11 @@
 
       <p class="description">Tender, hopeful, and deeply character-driven, <em>Where Starlight Finds You</em> is a slow-burn queer science-fiction romance about finding family beyond blood and discovering love where you least expect it.</p>
 
+      <p><a href="https://www.goodreads.com/book/show/255704448-where-starlight-finds-you" target="_blank" rel="noopener noreferrer">Goodreads</a></p>
+
       <a class="back-link" href="index.html#books">← Return to the books</a>
     </div>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>

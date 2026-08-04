@@ -87,7 +87,7 @@ a {
   height: 76vh;
   display: flex;
   align-items: center;
-  background: url("images/hero.png") center 54% / cover no-repeat;
+  background: url("images/web/hero.webp") center 54% / cover no-repeat;
 }
 .hero-shade {
   position: absolute;
@@ -291,6 +291,30 @@ a {
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.62);
 }
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 12px;
+  left: 12px;
+  padding: 10px 14px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.72rem;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #d4ad78;
+  outline-offset: 4px;
+}
 /* ==================================================
    6. Questions and home panels
    ================================================== */
@@ -457,6 +481,24 @@ a {
 .book-page .site-header {
   position: relative;
 }
+.not-found {
+  min-height: 100vh;
+  width: min(720px, calc(100% - 48px));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.not-found h1 {
+  margin: 0 0 22px;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+}
+.not-found .back-link {
+  margin-top: 28px;
+}
 .book-detail {
   max-width: 1120px;
   margin: 0 auto;
@@ -466,9 +508,28 @@ a {
   gap: 70px;
   align-items: start;
 }
-.book-detail img {
+.book-detail > img,
+.detail-cover-wrap img {
   width: 100%;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.58);
+}
+.detail-cover-wrap {
+  width: 100%;
+}
+.cover-note,
+.book-series {
+  font-family: Montserrat, Arial, sans-serif;
+  color: #bca78a;
+  letter-spacing: 0.13em;
+  font-size: 0.67rem;
+  text-transform: uppercase;
+}
+.cover-note {
+  margin: 14px 0 0;
+  text-align: center;
+}
+.book-series {
+  margin: 0 0 12px;
 }
 .book-detail h1 {
   font-size: clamp(2.7rem, 5vw, 5rem);
