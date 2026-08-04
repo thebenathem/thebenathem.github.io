@@ -572,13 +572,27 @@ textarea:focus-visible {
   height: auto;
   display: block;
 }
-.home-panel {
-  padding: 32px 20px;
+.home-art-divider {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(175, 137, 86, 0.18);
+  border-bottom: 1px solid rgba(175, 137, 86, 0.22);
+  background: #d8d0c2;
 }
-.home-panel p {
-  font-size: 2rem;
-  line-height: 1.03;
-  margin: 0;
+
+.home-art-divider img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 28vw, 440px);
+  object-fit: cover;
+  object-position: left top;
+}
+
+@media (max-width: 600px) {
+  .home-art-divider img {
+    height: 240px;
+    object-position: left top;
+  }
 }
 .closing {
   text-align: center;
