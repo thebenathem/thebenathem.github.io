@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find Ben Athem's official website, Goodreads, social profiles and contact details.">
+  <link rel="canonical" href="https://benathem.com/links/">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ben Athem | Links">
+  <meta property="og:description" content="Official website, Goodreads, social profiles and contact details for author Ben Athem.">
+  <meta property="og:url" content="https://benathem.com/links/">
+  <meta property="og:image" content="https://benathem.com/images/web/ben-athem-landscape-banner.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <title>Ben Athem | Links</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #071217;
+      --ink-soft: #0b171c;
+      --cream: #eee6da;
+      --paper: #e5ddd1;
+      --gold: #b1854e;
+      --gold-bright: #d0a36c;
+      --line: rgba(208, 163, 108, 0.36);
+      --muted: #c8bdae;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background: var(--ink);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--cream);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      background:
+        linear-gradient(180deg, rgba(5, 13, 18, 0.64), rgba(5, 13, 18, 0.89)),
+        url("/images/web/ben-athem-landscape-banner.webp") center center / cover fixed no-repeat;
+    }
+
+    a { color: inherit; }
+
+    .page-shell {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 38px 18px;
+    }
+
+    .links-card {
+      width: min(100%, 590px);
+      padding: clamp(30px, 6vw, 52px);
+      text-align: center;
+      background: linear-gradient(180deg, rgba(7, 18, 23, 0.94), rgba(7, 18, 23, 0.89));
+      border: 1px solid var(--line);
+      box-shadow: 0 26px 75px rgba(0, 0, 0, 0.42);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-wrap {
+      width: 102px;
+      height: 102px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(208, 163, 108, 0.58);
+      background: #eae2d5;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 3.8rem);
+      line-height: 0.96;
+      font-weight: 500;
+      letter-spacing: 0.015em;
+    }
+
+    .eyebrow {
+      margin: 14px 0 0;
+      color: var(--gold-bright);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 0.66rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      max-width: 430px;
+      margin: 20px auto 30px;
+      color: #ded4c8;
+      font-size: 1.08rem;
+      line-height: 1.5;
+    }
+
+    .rule {
+      width: 150px;
+      margin: 0 auto 28px;
+      display: flex;
+      align-items: center;
+      color: var(--gold);
+    }
+
+    .rule::before,
+    .rule::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .rule span {
+      padding: 0 9px;
+      font-size: 0.72rem;
+    }
+
+    .primary-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .link-button {
+      min-height: 64px;
+      display: grid;
+      grid-template-columns: 42px 1fr 42px;
+      align-items: center;
+      padding: 8px 14px;
+      border: 1px solid rgba(208, 163, 108, 0.38);
+      background: rgba(229, 221, 209, 0.07);
+      text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .link-button:hover,
+    .link-button:focus-visible {
+      transform: translateY(-2px);
+      background: rgba(229, 221, 209, 0.12);
+      border-color: rgba(208, 163, 108, 0.78);
+      outline: none;
+    }
+
+    .link-button-icon,
+    .link-button-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--gold-bright);
+    }
+
+    .link-button svg,
+    .social-link svg,
+    .email-link svg {
+      width: 21px;
+      height: 21px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .link-button-label {
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .social-heading {
+      margin: 31px 0 15px;
+      color: var(--muted);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 0.61rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .social-link {
+      min-width: 72px;
+      display: grid;
+      justify-items: center;
+      gap: 8px;
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    .social-icon,
+    .email-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(208, 163, 108, 0.4);
+      color: var(--cream);
+      background: rgba(229, 221, 209, 0.06);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+
+    .social-label {
+      color: var(--muted);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 0.56rem;
+      letter-spacing: 0.06em;
+    }
+
+    .social-link:hover .social-icon,
+    .social-link:focus-visible .social-icon,
+    .email-icon:hover,
+    .email-icon:focus-visible {
+      transform: translateY(-2px);
+      color: #fff9f0;
+      background: rgba(177, 133, 78, 0.18);
+      border-color: rgba(208, 163, 108, 0.82);
+    }
+
+    .social-link:hover .social-label,
+    .social-link:focus-visible .social-label {
+      color: #fff8ed;
+    }
+
+    .social-link:focus-visible,
+    .email-icon:focus-visible {
+      outline: 1px solid var(--gold-bright);
+      outline-offset: 4px;
+    }
+
+    .social-link svg {
+      width: 23px;
+      height: 23px;
+      stroke-width: 1.65;
+    }
+
+    .email-link {
+      width: fit-content;
+      max-width: 100%;
+      margin: 22px auto 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: #d9cec1;
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .email-link:hover,
+    .email-link:focus-visible {
+      color: #fff8ed;
+      outline: none;
+    }
+
+    .email-icon {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+    }
+
+    .email-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .footer-note {
+      margin: 31px 0 0;
+      color: rgba(229, 221, 209, 0.58);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 0.57rem;
+      line-height: 1.5;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        background-attachment: scroll;
+      }
+
+      .page-shell {
+        padding: 0;
+      }
+
+      .links-card {
+        min-height: 100vh;
+        width: 100%;
+        padding: 34px 22px 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 0;
+      }
+
+      .link-button {
+        min-height: 60px;
+      }
+
+      .email-link {
+        font-size: 0.68rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="links-card" aria-labelledby="links-title">
+      <div class="logo-wrap" aria-hidden="true">
+        <img src="/assets/ben-athem-logo.png" alt="">
+      </div>
+
+      <h1 id="links-title">Ben Athem</h1>
+      <p class="eyebrow">Author · Queer Science-Fiction Romance</p>
+      <p class="intro">Quiet, character-driven stories about belonging, connection, and finding home in unexpected places.</p>
+
+      <div class="rule" aria-hidden="true"><span>✦</span></div>
+
+      <div class="primary-links" aria-label="Ben Athem links">
+        <a class="link-button" href="https://benathem.com/" aria-label="Visit Ben Athem's official website">
+          <span class="link-button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18"></path><path d="M12 3a15 15 0 0 0 0 18"></path></svg>
+          </span>
+          <span class="link-button-label">Website</span>
+          <span class="link-button-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="link-button" href="https://www.goodreads.com/benathem" target="_blank" rel="noopener noreferrer" aria-label="Find Ben Athem on Goodreads">
+          <span class="link-button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H19v17H7.5A2.5 2.5 0 0 0 5 21.5z"></path><path d="M5 4.5v17"></path><path d="M8 6h7"></path><path d="M8 10h7"></path></svg>
+          </span>
+          <span class="link-button-label">Goodreads</span>
+          <span class="link-button-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <p class="social-heading">Elsewhere</p>
+      <div class="social-links" aria-label="Social media">
+        <a class="social-link" href="https://www.threads.com/@thebenathem" target="_blank" rel="noopener noreferrer" aria-label="Ben Athem on Threads">
+          <span class="social-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M16.8 11.4c-.3-3-2-4.7-4.8-4.7-3.2 0-5.1 2.1-5.1 5.3 0 3.4 2 5.5 5 5.5 2.3 0 4-1.2 4.6-3.2.7-2.1-.2-4.3-2.4-5.1-1.9-.7-4.2-.1-4.8 1.5-.5 1.3.3 2.8 1.8 3.1 2 .4 4.4-.6 5.5-2.3 1-1.5.8-3.6-.4-5.1C15 4.8 13.1 4 11 4 6.8 4 4 7 4 11.7 4 16.6 7 20 11.8 20c4.4 0 7.2-2.5 7.2-6.6 0-1.7-.5-3.3-1.5-4.6"></path></svg>
+          </span>
+          <span class="social-label">Threads</span>
+        </a>
+
+        <a class="social-link" href="https://bsky.app/profile/benathem.com" target="_blank" rel="noopener noreferrer" aria-label="Ben Athem on Bluesky">
+          <span class="social-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 11.4C10.8 9 7.6 4.9 4.8 3 2.2 1.2 1.2 1.5.7 1.8.1 2.2 0 3.4 0 4.2c0 .8.4 6.6.8 7.6.4 1.2 1.7 1.6 3 1.4-2.2.4-4.1 1.4-1.6 4.2 2.7 2.8 3.7-.6 5-3.3.3-.6.5-1.1.8-1.6-.2.5-.4 1-.6 1.6-1.2 2.9-1.8 5.8 2.3 7.1 1.3.4 2.1-.2 2.3-1.2.2 1 1 1.6 2.3 1.2 4.1-1.3 3.5-4.2 2.3-7.1-.2-.6-.4-1.1-.6-1.6.3.5.5 1 .8 1.6 1.3 2.7 2.3 6.1 5 3.3 2.5-2.8.6-3.8-1.6-4.2 1.3.2 2.6-.2 3-1.4.4-1 .8-6.8.8-7.6 0-.8-.1-2-.7-2.4-.5-.3-1.5-.6-4.1 1.2-2.8 1.9-6 6-7.2 8.4z" transform="translate(1.1 .5) scale(.91)"></path></svg>
+          </span>
+          <span class="social-label">Bluesky</span>
+        </a>
+
+        <a class="social-link" href="https://www.instagram.com/thebenathem/" target="_blank" rel="noopener noreferrer" aria-label="Ben Athem on Instagram">
+          <span class="social-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.8" r=".8" fill="currentColor" stroke="none"></circle></svg>
+          </span>
+          <span class="social-label">Instagram</span>
+        </a>
+      </div>
+
+      <a class="email-link" href="mailto:contact@benathem.com" aria-label="Email Ben Athem at contact@benathem.com">
+        <span class="email-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
+        </span>
+        <span>contact@benathem.com</span>
+      </a>
+
+      <p class="footer-note">© 2026 Ben Athem</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+BEN ATHEM LINKS PAGE UPDATE
+
+This update adds the clean link-in-bio page at:
+https://benathem.com/links/
+
+To update the existing GitHub Pages site, copy these items into the ROOT of the repository:
+
+1. the entire "links" folder (contains links/index.html)
+2. sitemap.xml (replace the existing sitemap.xml)
+
+Do not upload this TXT file to the live site unless you want to; it is only an instruction note.
