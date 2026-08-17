@@ -2,18 +2,33 @@ const menuButton = document.querySelector(".menu-button");
 const nav = document.querySelector(".main-nav");
 
 if (menuButton && nav) {
+    const closeMenu = () => {
+        nav.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+    };
+
+    closeMenu();
+
     menuButton.addEventListener("click", () => {
         const open = nav.classList.toggle("open");
         menuButton.setAttribute("aria-expanded", String(open));
     });
 
     nav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-            nav.classList.remove("open");
-            menuButton.setAttribute("aria-expanded", "false");
-        });
+        link.addEventListener("click", closeMenu);
     });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeMenu();
+            menuButton.focus();
+        }
+    });
+
+    const desktopView = window.matchMedia("(min-width: 851px)");
+    desktopView.addEventListener("change", closeMenu);
 }
+
 const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#form-status");
 

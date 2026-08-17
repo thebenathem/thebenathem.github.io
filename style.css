@@ -2522,3 +2522,520 @@ a.extras-card:hover {
 .extras-card-soon .extras-card-link {
   border-bottom-color: transparent;
 }
+
+
+/* ==================================================
+   16. Website exclusives
+   ================================================== */
+
+.exclusives-page {
+  min-height: 100vh;
+  background: #071217;
+}
+
+.exclusives-page .site-header {
+  position: relative;
+  background: rgba(4, 14, 19, 0.96);
+  border-bottom: 1px solid rgba(167, 122, 67, 0.34);
+}
+
+.exclusives-hero {
+  position: relative;
+  min-height: 540px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 96px 24px 104px;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(4, 14, 19, 0.62), rgba(4, 14, 19, 0.9)),
+    url("images/web/ben-athem-landscape-banner.webp") center 48% / cover no-repeat;
+  border-bottom: 1px solid rgba(167, 122, 67, 0.36);
+}
+
+.exclusives-hero::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border: 1px solid rgba(229, 221, 209, 0.24);
+  pointer-events: none;
+}
+
+.exclusives-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(830px, 100%);
+}
+
+.exclusives-eyebrow,
+.exclusive-product-kicker,
+.exclusives-coming-kicker,
+.exclusives-benefit-number,
+.exclusive-format,
+.exclusive-checkout-note {
+  font-family: Montserrat, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.exclusives-eyebrow {
+  margin: 0 0 22px;
+  color: #d2a468;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+}
+
+.exclusives-hero h1 {
+  margin: 0;
+  color: #eee3d5;
+  font-size: clamp(3.6rem, 8vw, 7rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: 0.015em;
+}
+
+.exclusives-hero-rule {
+  width: min(270px, 70%);
+  margin: 28px auto 24px;
+  display: flex;
+  align-items: center;
+  color: #c7965b;
+}
+
+.exclusives-hero-rule::before,
+.exclusives-hero-rule::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: rgba(199, 150, 91, 0.6);
+}
+
+.exclusives-hero-rule span {
+  padding: 0 13px;
+}
+
+.exclusives-intro {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #ddd2c5;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  line-height: 1.55;
+}
+
+.exclusives-jump {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  margin-top: 34px;
+  padding: 14px 24px;
+  border: 1px solid rgba(207, 177, 139, 0.58);
+  background: rgba(7, 18, 23, 0.56);
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.exclusives-jump:hover,
+.exclusives-jump:focus-visible {
+  background: rgba(167, 122, 67, 0.2);
+  border-color: #c69a63;
+  transform: translateY(-2px);
+}
+
+.exclusive-feature {
+  padding: 90px clamp(24px, 8vw, 130px);
+  background:
+    radial-gradient(circle at 22% 34%, rgba(167, 122, 67, 0.11), transparent 30%),
+    linear-gradient(180deg, #071217, #0a171c);
+}
+
+.exclusive-product {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(250px, 400px) minmax(0, 1fr);
+  gap: clamp(48px, 8vw, 100px);
+  align-items: center;
+}
+
+.exclusive-cover-stage {
+  position: relative;
+  width: min(380px, 100%);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.exclusive-cover-stage::before,
+.exclusive-cover-stage::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(199, 150, 91, 0.36);
+  pointer-events: none;
+}
+
+.exclusive-cover-stage::before {
+  inset: 0 36px 42px 0;
+}
+
+.exclusive-cover-stage::after {
+  inset: 34px 0 0 38px;
+}
+
+.exclusive-cover-stage img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-shadow: 24px 30px 62px rgba(0, 0, 0, 0.58);
+  border: 1px solid rgba(229, 221, 209, 0.16);
+}
+
+.exclusive-cover-badge {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: -12px;
+  padding: 10px 14px;
+  background: #a77a43;
+  color: #fff8ee;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+}
+
+.exclusive-product-kicker {
+  margin: 0 0 12px;
+  color: #c99960;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+}
+
+.exclusive-product-copy h2 {
+  margin: 0;
+  color: #eee3d5;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 0.94;
+}
+
+.exclusive-format {
+  margin: 15px 0 0;
+  color: #c99960;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+}
+
+.exclusive-description {
+  max-width: 620px;
+  margin: 28px 0 0;
+  color: #ddd2c5;
+  font-size: 1.22rem;
+  line-height: 1.55;
+}
+
+.exclusive-includes {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 24px 0;
+  border-top: 1px solid rgba(207, 177, 139, 0.22);
+  border-bottom: 1px solid rgba(207, 177, 139, 0.22);
+}
+
+.exclusive-includes li {
+  position: relative;
+  margin: 0 0 13px;
+  padding-left: 27px;
+  color: #d7ccbf;
+  line-height: 1.4;
+}
+
+.exclusive-includes li:last-child {
+  margin-bottom: 0;
+}
+
+.exclusive-includes li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0.16em;
+  color: #c99960;
+  font-size: 0.68rem;
+}
+
+.exclusive-purchase {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-top: 28px;
+}
+
+.exclusive-price {
+  margin: 0;
+  color: #eee3d5;
+  font-size: 2.2rem;
+}
+
+.exclusive-buy-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 225px;
+  min-height: 52px;
+  padding: 14px 23px !important;
+  border: 1px solid #c69461 !important;
+  border-radius: 0 !important;
+  background: #a86f3f !important;
+  color: #fff8ee !important;
+  font-family: Montserrat, Arial, sans-serif !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  box-shadow: none !important;
+}
+
+.exclusive-buy-button:hover,
+.exclusive-buy-button:focus-visible {
+  background: #bc7c45 !important;
+}
+
+.exclusive-checkout-note {
+  margin: 15px 0 0;
+  color: #aa9e90;
+  font-size: 0.58rem;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
+}
+
+.exclusive-standard-note {
+  max-width: 600px;
+  margin: 24px 0 0;
+  color: #bdb1a4;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.exclusive-standard-note a {
+  color: #d0a169;
+  border-bottom: 1px solid rgba(208, 161, 105, 0.45);
+}
+
+.exclusives-coming {
+  padding: 88px clamp(24px, 8vw, 130px) 100px;
+  background: #d9d0c3;
+  color: #171b1d;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+.exclusives-coming-inner {
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.exclusives-coming-kicker {
+  margin: 0 0 14px;
+  color: #80643f;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+}
+
+.exclusives-coming h2 {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.exclusives-coming-lead {
+  max-width: 680px;
+  margin: 24px auto 0;
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+.exclusives-format-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 52px;
+  text-align: left;
+}
+
+.exclusives-format-card {
+  min-height: 230px;
+  padding: 30px 28px;
+  border: 1px solid rgba(95, 73, 45, 0.28);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.exclusives-format-card span {
+  color: #80643f;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.exclusives-format-card h3 {
+  margin: 14px 0 12px;
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.exclusives-format-card p {
+  margin: 0;
+  color: #353535;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.exclusives-notice {
+  margin: 34px auto 0;
+  color: #6d5639;
+  font-style: italic;
+}
+
+.exclusives-benefits {
+  padding: 82px clamp(24px, 8vw, 130px);
+  background:
+    radial-gradient(circle at 50% 0, rgba(167, 122, 67, 0.12), transparent 38%),
+    #071217;
+}
+
+.exclusives-benefits-inner {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+}
+
+.exclusives-benefits h2 {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+}
+
+.exclusives-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  margin-top: 48px;
+}
+
+.exclusives-benefit {
+  padding-top: 22px;
+  border-top: 1px solid rgba(207, 177, 139, 0.32);
+}
+
+.exclusives-benefit-number {
+  color: #c99960;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.exclusives-benefit h3 {
+  margin: 13px 0 10px;
+  font-size: 1.55rem;
+  font-weight: 400;
+}
+
+.exclusives-benefit p {
+  margin: 0;
+  color: #c7bbae;
+  line-height: 1.5;
+}
+
+.exclusives-footer {
+  padding: 42px 24px 48px;
+  background: #050f13;
+  border-top: 1px solid rgba(167, 122, 67, 0.25);
+  text-align: center;
+}
+
+.exclusives-footer p {
+  margin: 14px auto 0;
+  color: #a99d90;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 850px) {
+  .exclusive-product {
+    grid-template-columns: 1fr;
+  }
+
+  .exclusive-product-copy {
+    width: min(650px, 100%);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .exclusive-description,
+  .exclusive-standard-note {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .exclusive-includes {
+    text-align: left;
+  }
+
+  .exclusive-purchase {
+    justify-content: center;
+  }
+
+  .exclusives-format-grid,
+  .exclusives-benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .exclusives-format-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .exclusives-hero {
+    min-height: 500px;
+    padding: 82px 22px 86px;
+  }
+
+  .exclusives-hero::before {
+    inset: 12px;
+  }
+
+  .exclusives-hero h1 {
+    font-size: 3.35rem;
+  }
+
+  .exclusive-feature,
+  .exclusives-coming,
+  .exclusives-benefits {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .exclusive-cover-stage {
+    width: min(310px, 92%);
+  }
+
+  .exclusive-cover-badge {
+    right: -4px;
+  }
+
+  .exclusive-purchase {
+    flex-direction: column;
+  }
+
+  .exclusive-buy-button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
