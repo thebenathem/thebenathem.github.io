@@ -2653,17 +2653,17 @@ a.extras-card:hover {
 }
 
 .exclusive-product {
-  width: min(1120px, 100%);
+  width: min(1080px, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(250px, 400px) minmax(0, 1fr);
-  gap: clamp(48px, 8vw, 100px);
+  grid-template-columns: minmax(230px, 330px) minmax(0, 1fr);
+  gap: clamp(48px, 7vw, 90px);
   align-items: center;
 }
 
 .exclusive-cover-stage {
   position: relative;
-  width: min(380px, 100%);
+  width: min(330px, 100%);
   margin: 0 auto;
   padding: 18px;
 }
@@ -2688,6 +2688,9 @@ a.extras-card:hover {
   position: relative;
   z-index: 1;
   width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
   box-shadow: 24px 30px 62px rgba(0, 0, 0, 0.58);
   border: 1px solid rgba(229, 221, 209, 0.16);
 }
@@ -3023,7 +3026,7 @@ a.extras-card:hover {
   }
 
   .exclusive-cover-stage {
-    width: min(310px, 92%);
+    width: min(280px, 92%);
   }
 
   .exclusive-cover-badge {
