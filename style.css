@@ -783,6 +783,490 @@ textarea:focus-visible {
   text-decoration: underline;
 }
 
+/* ==================================================
+   Field Notes From Earth — direct sales page
+   ================================================== */
+
+.fnfe-page {
+  background: #071217;
+}
+
+.fnfe-page .site-header {
+  position: relative;
+  background: rgba(4, 14, 19, 0.94);
+  border-bottom: 1px solid rgba(167, 122, 67, 0.42);
+}
+
+.fnfe-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 34px clamp(24px, 7vw, 110px) 46px;
+  background:
+    url("images/web/ben-athem-landscape-banner.webp") center 44% / cover no-repeat;
+  border-bottom: 1px solid rgba(167, 122, 67, 0.46);
+}
+
+.fnfe-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 12, 16, 0.82), rgba(5, 17, 22, 0.58) 52%, rgba(5, 17, 22, 0.76)),
+    linear-gradient(0deg, rgba(5, 16, 21, 0.74), rgba(5, 16, 21, 0.12) 55%, rgba(5, 16, 21, 0.5));
+}
+
+.fnfe-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1140px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(210px, 320px) minmax(0, 1fr);
+  gap: clamp(44px, 7vw, 88px);
+  align-items: center;
+}
+
+.fnfe-cover-wrap {
+  padding: 12px 0;
+}
+
+.fnfe-cover-wrap img {
+  width: min(100%, 300px);
+  margin: 0 auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.64);
+  border: 1px solid rgba(229, 221, 209, 0.16);
+}
+
+.fnfe-hero-copy {
+  max-width: 720px;
+}
+
+.fnfe-kicker,
+.fnfe-subtitle,
+.fnfe-genre,
+.fnfe-direct-kicker,
+.fnfe-card-number,
+.fnfe-checkout-note {
+  font-family: Montserrat, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.fnfe-kicker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 14px;
+  color: #c99960;
+  letter-spacing: 0.3em;
+  font-size: 0.67rem;
+}
+
+.fnfe-kicker span {
+  width: 34px;
+  height: 1px;
+  background: #a77a43;
+}
+
+.fnfe-hero-copy h1 {
+  margin: 0;
+  color: #eee3d5;
+  font-size: clamp(3rem, 6vw, 5.65rem);
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.fnfe-subtitle {
+  margin: 14px 0 0;
+  color: #c99960;
+  font-size: 0.72rem;
+  letter-spacing: 0.31em;
+}
+
+.fnfe-rule {
+  width: 34px;
+  height: 1px;
+  margin: 26px 0 20px;
+  background: #a77a43;
+}
+
+.fnfe-hook {
+  max-width: 680px;
+  margin: 0;
+  color: #e0d6ca;
+  font-size: clamp(1.12rem, 2vw, 1.38rem);
+  line-height: 1.55;
+}
+
+.fnfe-genre {
+  margin: 24px 0 0;
+  color: #c99960;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+}
+
+.fnfe-genre span {
+  margin: 0 8px;
+}
+
+.fnfe-direct {
+  padding: 0 clamp(24px, 7vw, 110px);
+  background: #071217;
+}
+
+.fnfe-direct-card {
+  width: min(970px, 100%);
+  margin: 0 auto;
+  transform: translateY(-1px);
+  padding: 30px clamp(24px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.7fr);
+  gap: 44px;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(10, 31, 39, 0.98), rgba(6, 21, 27, 0.98));
+  border: 1px solid rgba(190, 142, 82, 0.72);
+  box-shadow: 0 15px 38px rgba(0, 0, 0, 0.28);
+}
+
+.fnfe-direct-kicker {
+  margin: 0 0 8px;
+  color: #c99960;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+}
+
+.fnfe-direct-copy h2,
+.fnfe-about h2 {
+  margin: 0;
+  color: #eee3d5;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.fnfe-direct-copy > p:last-child {
+  max-width: 560px;
+  margin: 12px 0 0;
+  color: #cfc4b7;
+  line-height: 1.45;
+}
+
+.fnfe-direct-action {
+  text-align: center;
+}
+
+.fnfe-price {
+  margin: 0 0 10px;
+  color: #eee3d5;
+  font-size: 1.55rem;
+}
+
+.fnfe-buy-button,
+.fnfe-direct-action .payhip-buy-button {
+  width: 100% !important;
+  min-height: 50px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 14px 22px !important;
+  background: transparent !important;
+  border: 1px solid #c58d51 !important;
+  border-radius: 3px !important;
+  color: #e4b779 !important;
+  font-family: Montserrat, Arial, sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.17em !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+  box-shadow: none !important;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+}
+
+.fnfe-buy-button:hover,
+.fnfe-buy-button:focus-visible,
+.fnfe-direct-action .payhip-buy-button:hover,
+.fnfe-direct-action .payhip-buy-button:focus-visible {
+  background: #a77a43 !important;
+  color: #071217 !important;
+  transform: translateY(-2px);
+}
+
+.fnfe-checkout-note {
+  margin: 10px 0 0;
+  color: #ac9e8f;
+  font-size: 0.54rem;
+  letter-spacing: 0.08em;
+}
+
+.fnfe-availability {
+  padding: 48px clamp(24px, 4vw, 68px) 26px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(41, 72, 78, 0.2), transparent 34%),
+    linear-gradient(180deg, #08171c, #071217);
+}
+
+.fnfe-section-heading {
+  width: min(520px, 100%);
+  margin: 0 auto 26px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.fnfe-section-heading span {
+  height: 1px;
+  background: rgba(167, 122, 67, 0.58);
+}
+
+.fnfe-section-heading h2 {
+  margin: 0;
+  color: #c99960;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.fnfe-retailer-grid {
+  width: min(1340px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border: 1px solid rgba(167, 122, 67, 0.58);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.fnfe-retailer-card {
+  min-width: 0;
+  padding: 24px 16px 28px;
+  text-align: center;
+  border-right: 1px solid rgba(167, 122, 67, 0.38);
+}
+
+.fnfe-retailer-card:last-child {
+  border-right: 0;
+}
+
+.fnfe-retailer-featured {
+  background: rgba(167, 122, 67, 0.07);
+}
+
+.fnfe-card-number {
+  margin: 0 0 10px;
+  color: #b7864f;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+}
+
+.fnfe-retailer-card h3 {
+  margin: 0 0 16px;
+  color: #e6d9ca;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.fnfe-retailer-card > p:not(.fnfe-card-number) {
+  margin: 0 0 16px;
+  color: #bfb3a6;
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.fnfe-link-stack,
+.fnfe-edition-group {
+  display: grid;
+  gap: 8px;
+}
+
+.fnfe-edition-group + .fnfe-edition-group {
+  margin-top: 16px;
+}
+
+.fnfe-edition-group p {
+  margin: 0;
+  color: #b7864f;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.57rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.fnfe-link-stack a,
+.fnfe-edition-group a,
+.fnfe-retailer-link {
+  display: block;
+  padding: 7px 8px;
+  color: #ddd1c2;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.68rem;
+  line-height: 1.25;
+  border: 1px solid rgba(167, 122, 67, 0.56);
+  border-radius: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.fnfe-link-stack a:hover,
+.fnfe-link-stack a:focus-visible,
+.fnfe-edition-group a:hover,
+.fnfe-edition-group a:focus-visible,
+.fnfe-retailer-link:hover,
+.fnfe-retailer-link:focus-visible {
+  background: rgba(167, 122, 67, 0.2);
+  color: #fff4e6;
+}
+
+.fnfe-region-note {
+  margin: 12px 0 0;
+  color: #a99b8d;
+  font-style: italic;
+  text-align: center;
+}
+
+.fnfe-about {
+  padding: 70px clamp(24px, 8vw, 120px) 78px;
+  text-align: center;
+  background:
+    linear-gradient(rgba(6, 19, 24, 0.9), rgba(6, 19, 24, 0.96)),
+    url("images/web/ben-athem-forest-divider.webp") center / cover no-repeat;
+  border-top: 1px solid rgba(167, 122, 67, 0.25);
+}
+
+.fnfe-about h2 {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.fnfe-about-copy {
+  width: min(860px, 100%);
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  color: #d7ccbf;
+  text-align: left;
+}
+
+.fnfe-about-copy p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.fnfe-footer {
+  padding: 32px 24px 40px;
+  text-align: center;
+  background: #041015;
+  border-top: 1px solid rgba(167, 122, 67, 0.3);
+}
+
+.fnfe-footer .brand {
+  display: inline-block;
+}
+
+.fnfe-footer p {
+  margin: 10px 0 0;
+  color: #a99d90;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1100px) {
+  .fnfe-retailer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .fnfe-retailer-card {
+    border-bottom: 1px solid rgba(167, 122, 67, 0.38);
+  }
+  .fnfe-retailer-card:nth-child(3n) {
+    border-right: 0;
+  }
+  .fnfe-retailer-card:nth-child(n + 4) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .fnfe-hero {
+    padding-top: 24px;
+  }
+  .fnfe-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    text-align: center;
+  }
+  .fnfe-cover-wrap img {
+    width: min(245px, 70vw);
+  }
+  .fnfe-kicker {
+    justify-content: center;
+  }
+  .fnfe-rule {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .fnfe-genre {
+    line-height: 1.6;
+  }
+  .fnfe-direct-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+  .fnfe-retailer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fnfe-retailer-card,
+  .fnfe-retailer-card:nth-child(3n) {
+    border-right: 1px solid rgba(167, 122, 67, 0.38);
+    border-bottom: 1px solid rgba(167, 122, 67, 0.38);
+  }
+  .fnfe-retailer-card:nth-child(2n) {
+    border-right: 0;
+  }
+  .fnfe-retailer-card:nth-child(n + 5) {
+    border-bottom: 0;
+  }
+  .fnfe-about-copy {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .fnfe-hero-copy h1 {
+    font-size: clamp(2.7rem, 14vw, 3.7rem);
+  }
+  .fnfe-direct {
+    padding: 0 14px;
+  }
+  .fnfe-direct-card {
+    padding: 26px 20px;
+  }
+  .fnfe-availability {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .fnfe-retailer-grid {
+    grid-template-columns: 1fr;
+  }
+  .fnfe-retailer-card,
+  .fnfe-retailer-card:nth-child(2n),
+  .fnfe-retailer-card:nth-child(3n),
+  .fnfe-retailer-card:nth-child(n + 5) {
+    border-right: 0;
+    border-bottom: 1px solid rgba(167, 122, 67, 0.38);
+  }
+  .fnfe-retailer-card:last-child {
+    border-bottom: 0;
+  }
+}
+
 .back-link {
   display: inline-block;
   margin-top: 24px;
