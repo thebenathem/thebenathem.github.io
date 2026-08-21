@@ -1,7 +1,13 @@
 /* Growth-stage logic override for Keep Something Growing.
    Keeps the existing game intact and changes only plant lifecycle behaviour. */
 
-const GROWTH_STAGE_NAMES = ["", "Seed", "Sprout", "Sapling", "Mature", "Thriving"];
+const DEFAULT_GROWTH_STAGE_NAMES = ["", "Seed", "Sprout", "Sapling", "Mature", "Thriving"];
+const TOMATO_GROWTH_STAGE_NAMES = ["", "Seed", "Sprout", "Sapling", "Blossoming", "Harvest"];
+
+function growthStageName(speciesId, stage) {
+  const names = speciesId === "tomato" ? TOMATO_GROWTH_STAGE_NAMES : DEFAULT_GROWTH_STAGE_NAMES;
+  return names[Math.max(0, Math.min(stage, names.length - 1))] || `Stage ${stage}`;
+}
 
 Object.values(SPECIES).forEach((species) => {
   species.maxStage = 5;
@@ -12,6 +18,7 @@ state.plots.forEach((plot) => {
   if (typeof plot.plantedCycle !== "number") {
     plot.plantedCycle = Math.max(1, state.cycle - Math.max(1, plot.stage || 1));
   }
+  if (typeof plot.harvests !== "number") plot.harvests = 0;
 });
 
 plantPlot = function plantPlotWithStages(index, speciesId) {
@@ -29,11 +36,107 @@ plantPlot = function plantPlotWithStages(index, speciesId) {
   plot.moisture = 2;
   plot.lastWatered = 0;
   plot.plantedCycle = state.cycle;
+  plot.harvests = 0;
   state.noActionCycles = 0;
 
   addLog(`${SPECIES[speciesId].name} seed is pressed into a new bed.`);
   evaluateDiscoveries("plant");
   render();
+};
+
+function harvestPlot(index) {
+  const plot = state.plots[index];
+
+  if (!plot.species) {
+    showToast("There is nothing to harvest in that bed.");
+    return;
+  }
+
+  if (plot.species !== "tomato") {
+    showToast(`${SPECIES[plot.species].name} is not a harvestable crop yet.`);
+    return;
+  }
+
+  if (plot.stage < 5) {
+    const stage = growthStageName(plot.species, plot.stage).toLowerCase();
+    showToast(`The tomato is still at the ${stage} stage.`);
+    return;
+  }
+
+  plot.stage = 4;
+  plot.growth = 0;
+  plot.stress = 0;
+  plot.listened = false;
+  plot.harvests = (plot.harvests || 0) + 1;
+  state.noActionCycles = 0;
+
+  addLog("Ripe tomatoes are gathered. The plant settles back into blossom and can fruit again.");
+  showToast("Tomatoes harvested. The plant can fruit again.");
+  render();
+}
+
+const originalActOnPlotHandler = actOnPlot;
+actOnPlot = function actOnPlotWithHarvest(index) {
+  if (state.selected.type === "tool" && state.selected.value === "harvest") {
+    harvestPlot(index);
+    return;
+  }
+  originalActOnPlotHandler(index);
+};
+
+const originalRenderReadoutHandler = renderReadout;
+renderReadout = function renderReadoutWithHarvest() {
+  originalRenderReadoutHandler();
+  if (state.selected.type === "tool" && state.selected.value === "harvest") {
+    selectionHelpEl.textContent = "Harvest selected. Choose a crop that has reached its harvest stage.";
+  }
+};
+
+const originalRenderGardenHandler = renderGarden;
+renderGarden = function renderGardenWithStageNames() {
+  originalRenderGardenHandler();
+
+  state.plots.forEach((plot, index) => {
+    if (!plot.species || !SPECIES[plot.species]) return;
+    const button = gardenEl.querySelector(`[data-index="${index}"]`);
+    if (!button) return;
+
+    const species = SPECIES[plot.species];
+    const stageName = growthStageName(plot.species, plot.stage);
+    const { row, col } = indexToCoords(index);
+    button.title = `${species.name} · ${stageName} · stage ${plot.stage}/${species.maxStage}`;
+    button.setAttribute(
+      "aria-label",
+      `Row ${row + 1}, column ${col + 1}: ${species.name}, ${stageName.toLowerCase()} stage, ${plot.stage} of ${species.maxStage}`
+    );
+  });
+};
+
+renderSeeds = function renderSeedsWithFinalStagePreviews() {
+  seedListEl.innerHTML = "";
+  Object.entries(SPECIES).forEach(([id, species]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "seed-card";
+    button.dataset.species = id;
+    button.setAttribute("aria-pressed", String(state.selected.type === "plant" && state.selected.value === id));
+    if (state.selected.type === "plant" && state.selected.value === id) button.classList.add("selected");
+
+    const preview = document.createElement("span");
+    preview.className = "seed-preview";
+    preview.appendChild(createPlantArt(id, species.maxStage));
+
+    const text = document.createElement("span");
+    const strong = document.createElement("strong");
+    strong.textContent = species.name;
+    const small = document.createElement("small");
+    small.textContent = species.subtitle;
+    text.append(strong, small);
+
+    button.append(preview, text);
+    button.addEventListener("click", () => selectPlant(id));
+    seedListEl.appendChild(button);
+  });
 };
 
 const originalAdvanceCycleHandler = advanceCycle;
