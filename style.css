@@ -1794,17 +1794,17 @@ textarea:focus-visible {
 }
 
 .reading-shell {
-  background: #d9d0c3;
-  color: #1a1d1e;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px);
-  background-size: 4px 4px;
-  padding: 0 20px 110px;
-}
-
-.reading-shell {
   background: #e3e7e2;
   color: #1a1d1e;
   padding: 0 20px 110px;
+}
+
+.reading-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 110px clamp(24px, 7vw, 74px) 100px;
+  background: #f7f3ea;
+  box-shadow: 0 0 42px rgba(0, 0, 0, 0.10);
 }
 
 .reading-page-header {
