@@ -1,0 +1,79 @@
+name: Repair mindfulness cover
+
+on:
+  push:
+    paths:
+      - '.github/workflows/repair-mindfulness-cover.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair-cover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: python -m pip install --quiet pillow
+
+      - name: Download Payhip product cover and save valid WebP
+        run: |
+          python - <<'PY'
+          import html
+          import io
+          import re
+          import urllib.request
+          from pathlib import Path
+          from PIL import Image
+
+          product_url = 'https://payhip.com/b/Ux257'
+          request = urllib.request.Request(product_url, headers={'User-Agent': 'Mozilla/5.0'})
+          with urllib.request.urlopen(request, timeout=30) as response:
+              page = response.read().decode('utf-8', 'replace')
+
+          patterns = [
+              r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',
+              r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
+              r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)',
+          ]
+          image_url = None
+          for pattern in patterns:
+              match = re.search(pattern, page, re.I)
+              if match:
+                  image_url = html.unescape(match.group(1))
+                  break
+          if not image_url:
+              raise RuntimeError('Could not find Payhip product cover image URL')
+
+          image_request = urllib.request.Request(image_url, headers={'User-Agent': 'Mozilla/5.0', 'Referer': product_url})
+          with urllib.request.urlopen(image_request, timeout=30) as response:
+              image_bytes = response.read()
+
+          image = Image.open(io.BytesIO(image_bytes)).convert('RGB')
+          if image.width < 300 or image.height < 400:
+              raise RuntimeError(f'Unexpectedly small product image: {image.size}')
+
+          target = Path('images/web/field-notes-on-mindfulness.webp')
+          target.parent.mkdir(parents=True, exist_ok=True)
+          image.save(target, 'WEBP', quality=90, method=6)
+          print(f'Saved {target} at {image.size}')
+          PY
+
+      - name: Commit repaired cover
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add images/web/field-notes-on-mindfulness.webp
+          if git diff --cached --quiet; then
+            echo 'No cover change to commit.'
+            exit 0
+          fi
+          git commit -m 'Repair Field Notes on Mindfulness cover image'
+          git push
