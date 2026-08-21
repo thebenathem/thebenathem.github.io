@@ -163,11 +163,11 @@
 .plant-art.tomato span::after {
   display: none !important;
 }
-.plant-art.tomato.stage-1 { background-image: url("assets/tomato-stage-1.webp"); }
-.plant-art.tomato.stage-2 { background-image: url("assets/tomato-stage-2.webp"); }
-.plant-art.tomato.stage-3 { background-image: url("assets/tomato-stage-3.webp"); }
-.plant-art.tomato.stage-4 { background-image: url("assets/tomato-stage-4.webp"); }
-.plant-art.tomato.stage-5 { background-image: url("assets/tomato-stage-5.svg"); }
+.plant-art.tomato.stage-1 { background-image: url("assets/tomato-stage-1.webp?v=2"); }
+.plant-art.tomato.stage-2 { background-image: url("assets/tomato-stage-2.webp?v=2"); }
+.plant-art.tomato.stage-3 { background-image: url("assets/tomato-stage-3.webp?v=2"); }
+.plant-art.tomato.stage-4 { background-image: url("assets/tomato-stage-4.webp?v=2"); }
+.plant-art.tomato.stage-5 { background-image: url("assets/tomato-stage-5.webp?v=2"); }
 .plot.thriving .plant-art.tomato.stage-5,
 .plot.stressed .plant-art.tomato {
   filter: none;
