@@ -1,4 +1,4 @@
-name: Inspect Payhip mindfulness images
+name: Install actual final mindfulness cover
 
 on:
   push:
@@ -9,81 +9,53 @@ permissions:
   contents: write
 
 jobs:
-  inspect-images:
+  install-cover:
     runs-on: ubuntu-latest
     steps:
       - name: Check out site
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install Pillow
-        run: python -m pip install --quiet pillow
-
-      - name: Inspect every Payhip image candidate
+      - name: Rebuild and verify exact cover asset
+        shell: bash
         run: |
+          set -euo pipefail
+          cat .tmp/mindfulness-cover-{0..6}.b64 | tr -d '\r\n' | base64 --decode > images/web/field-notes-on-mindfulness-final.webp
+          actual="$(sha256sum images/web/field-notes-on-mindfulness-final.webp | awk '{print $1}')"
+          expected="15abbbbb8c4db91f7038aa17a19706614e9cacdc769ad7f9d5bd84d04140233f"
+          test "$actual" = "$expected"
           python - <<'PY'
-          import html
-          import io
-          import re
-          import urllib.parse
-          import urllib.request
           from pathlib import Path
-          from PIL import Image
-
-          product_url = 'https://payhip.com/b/Ux257'
-          req = urllib.request.Request(product_url, headers={'User-Agent':'Mozilla/5.0'})
-          with urllib.request.urlopen(req, timeout=30) as r:
-              page = r.read().decode('utf-8','replace')
-
-          rows = []
-          seen = set()
-
-          # Capture URLs from HTML attributes, meta tags, srcsets and embedded JSON/scripts.
-          patterns = [
-              r'(?:src|data-src|data-lazy-src|content)=["\']([^"\']+)["\']',
-              r'https?://[^"\'<>\\ ]+?\.(?:jpg|jpeg|png|webp)(?:\?[^"\'<>\\ ]*)?',
-          ]
-          raw = []
-          for pat in patterns:
-              raw.extend(re.findall(pat, page, flags=re.I))
-
-          for item in raw:
-              item = html.unescape(item).replace('\\u0026','&').replace('\\/','/')
-              for bit in item.split(','):
-                  url = bit.strip().split(' ')[0]
-                  if not url:
-                      continue
-                  url = urllib.parse.urljoin(product_url, url)
-                  if url in seen:
-                      continue
-                  seen.add(url)
-                  if not re.search(r'\.(?:jpg|jpeg|png|webp)(?:\?|$)', url, re.I):
-                      continue
-                  try:
-                      ir = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0','Referer':product_url})
-                      with urllib.request.urlopen(ir, timeout=20) as resp:
-                          data = resp.read()
-                      im = Image.open(io.BytesIO(data))
-                      rows.append((im.width * im.height, im.width, im.height, im.format, url))
-                  except Exception as e:
-                      rows.append((0,0,0,'ERROR',url + ' :: ' + repr(e)))
-
-          rows.sort(reverse=True)
-          out = ['PAYHIP IMAGE CANDIDATES FOR ' + product_url, '']
-          for area,w,h,fmt,url in rows:
-              out.append(f'{w}x{h} {fmt} area={area} :: {url}')
-          Path('payhip-image-candidates.txt').write_text('\n'.join(out), encoding='utf-8')
-          print('\n'.join(out[:50]))
+          p = Path('images/web/field-notes-on-mindfulness-final.webp')
+          data = p.read_bytes()
+          assert len(data) == 41054, len(data)
+          assert data[:4] == b'RIFF' and data[8:12] == b'WEBP', data[:12]
           PY
 
-      - name: Commit candidate report
+      - name: Point Exclusives page at the final cover
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('website-exclusives.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<img src="images/web/field-notes-on-mindfulness-cover.jpg?v=20260821-2237" alt="Field Notes on Mindfulness colouring collection by Ben Athem" width="160" height="240">'
+          new = '<img src="images/web/field-notes-on-mindfulness-final.webp?v=20260821-final" alt="Field Notes on Mindfulness colouring collection by Ben Athem" width="420" height="561">'
+          if old not in s:
+              raise SystemExit('Expected old mindfulness image tag not found; refusing an unsafe edit')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+
+      - name: Remove bad assets and temporary staging files
+        run: |
+          rm -f images/web/field-notes-on-mindfulness-cover.jpg
+          rm -f images/web/field-notes-on-mindfulness.webp
+          rm -f .tmp/mindfulness-cover-*.b64
+          rm -f payhip-image-candidates.txt
+          rm -f .github/workflows/repair-mindfulness-cover.yml
+
+      - name: Commit the verified correction
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add payhip-image-candidates.txt
-          git commit -m 'Record Payhip mindfulness image candidates' || exit 0
+          git add -A
+          git commit -m 'Use actual final Field Notes on Mindfulness cover'
           git push
