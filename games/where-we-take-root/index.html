@@ -3,118 +3,167 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Tend a small Human–Vaeren exchange garden inspired by Where We Take Root by Ben Athem.">
-  <meta name="theme-color" content="#071217">
+  <meta name="description" content="Keep Something Growing — a quiet browser garden inspired by Where We Take Root by Ben Athem.">
   <title>Keep Something Growing | Where We Take Root</title>
+
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="game.css?v=1">
-</head>
-<body>
-  <a class="skip-link" href="#garden">Skip to the garden</a>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <header class="game-header">
+  <link rel="stylesheet" href="game.css?v=2">
+</head>
+
+<body>
+  <header class="site-bar">
     <a class="brand" href="/">BEN ATHEM</a>
-    <div class="game-header-links">
-      <a href="/where-we-take-root.html">Where We Take Root</a>
-      <a href="/">Author site</a>
-    </div>
+    <a class="book-link" href="/where-we-take-root.html">Where We Take Root <span aria-hidden="true">→</span></a>
   </header>
 
-  <main>
+  <main class="game-shell">
     <section class="intro" aria-labelledby="game-title">
-      <p class="eyebrow">A WHERE WE TAKE ROOT GARDEN</p>
+      <p class="eyebrow">A garden on Vael</p>
       <h1 id="game-title">Keep Something Growing</h1>
-      <p class="intro-copy">A small Human–Vaeren exchange garden. Plant carefully. Notice what changes. Not every imbalance needs intervention.</p>
+      <p class="intro-copy">
+        Plant first. Observe second. Intervene only when something actually needs you.
+        This mixed nursery remembers every choice you make.
+      </p>
+
       <div class="intro-rule" aria-hidden="true"><span>✦</span></div>
     </section>
 
-    <section class="game-shell" aria-label="Garden game">
-      <aside class="panel seed-panel" aria-labelledby="seed-heading">
+    <section class="game-layout" aria-label="Garden game">
+      <aside class="control-panel" aria-label="Garden controls">
         <div class="panel-heading">
-          <p class="panel-kicker">BOTANICAL ARCHIVE</p>
-          <h2 id="seed-heading">Choose what to plant</h2>
+          <p class="panel-kicker">Nursery cycle</p>
+          <p class="cycle-number" id="cycle-number">1</p>
         </div>
-        <div id="seed-list" class="seed-list"></div>
-        <div class="tool-group" aria-label="Garden tools">
-          <button class="tool-button" type="button" data-tool="water">
-            <span class="tool-icon" aria-hidden="true">◌</span>
-            <span><strong>Water</strong><small>Moisten one bed</small></span>
-          </button>
-          <button class="tool-button" type="button" data-tool="remove">
-            <span class="tool-icon" aria-hidden="true">×</span>
-            <span><strong>Lift</strong><small>Clear one bed</small></span>
-          </button>
-          <button class="tool-button" type="button" data-tool="listen">
-            <span class="tool-icon" aria-hidden="true">≈</span>
-            <span><strong>Listen</strong><small>Read one living bed</small></span>
-          </button>
-        </div>
+
+        <section class="resonance-card" id="resonance-card" aria-live="polite">
+          <p class="small-label">Resonance</p>
+          <h2 id="resonance-title">The garden is listening.</h2>
+          <p id="resonance-copy">
+            Nothing has taken root yet. The soil is quiet, not empty.
+          </p>
+          <div class="resonance-line" aria-hidden="true">
+            <span id="resonance-light"></span>
+          </div>
+        </section>
+
+        <section class="tool-section">
+          <p class="small-label">What will you do?</p>
+          <div class="tool-grid" role="group" aria-label="Garden tools">
+            <button class="tool-button is-active" data-tool="plant" type="button">
+              <span class="tool-mark seed-mark" aria-hidden="true"></span>
+              Plant
+            </button>
+            <button class="tool-button" data-tool="water" type="button">
+              <span class="tool-mark water-mark" aria-hidden="true"></span>
+              Water
+            </button>
+            <button class="tool-button" data-tool="listen" type="button">
+              <span class="tool-mark listen-mark" aria-hidden="true"></span>
+              Listen
+            </button>
+            <button class="tool-button" data-tool="lift" type="button">
+              <span class="tool-mark lift-mark" aria-hidden="true"></span>
+              Lift
+            </button>
+          </div>
+        </section>
+
+        <section class="seed-section" id="seed-section">
+          <div class="section-title-row">
+            <p class="small-label">Seed archive</p>
+            <span id="selected-seed-name">Tomato</span>
+          </div>
+          <div class="seed-list" id="seed-list" role="listbox" aria-label="Choose a seed"></div>
+        </section>
+
+        <button class="cycle-button" id="advance-cycle" type="button">
+          <span>Let the garden change</span>
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <button class="quiet-button" id="reset-garden" type="button">Start a new garden</button>
       </aside>
 
-      <div class="garden-column">
-        <div class="garden-topbar">
-          <div>
-            <p class="panel-kicker">MIXED NURSERY · WAYFARER</p>
-            <p id="day-label" class="day-label">Cycle 1</p>
-          </div>
-          <button id="advance-day" class="advance-button" type="button">Let the garden grow <span aria-hidden="true">→</span></button>
-        </div>
-
+      <section class="garden-column">
         <div class="garden-frame">
-          <div class="garden-light" aria-hidden="true"></div>
-          <div id="garden" class="garden-grid" role="grid" aria-label="Six by five garden bed"></div>
-        </div>
-
-        <div class="garden-actions">
-          <p id="selection-help" class="selection-help">Choose a plant, then choose an empty bed.</p>
-          <button id="reset-game" class="text-button" type="button">Start the garden again</button>
-        </div>
-      </div>
-
-      <aside class="panel resonance-panel" aria-labelledby="resonance-heading">
-        <div class="panel-heading">
-          <p class="panel-kicker">KEEPER OBSERVATION</p>
-          <h2 id="resonance-heading">Resonance</h2>
-        </div>
-
-        <div class="resonance-orb-wrap" aria-hidden="true">
-          <div id="resonance-orb" class="resonance-orb"><span></span></div>
-        </div>
-        <p id="resonance-reading" class="resonance-reading" aria-live="polite">The garden is quiet. Nothing has taken root yet.</p>
-
-        <div class="observation-log">
-          <h3>What you notice</h3>
-          <div id="observation-log" aria-live="polite"></div>
-        </div>
-
-        <div class="discoveries">
-          <div class="discoveries-heading">
-            <h3>Relationships understood</h3>
-            <span id="discovery-count">0 / 5</span>
+          <div class="garden-topline">
+            <div>
+              <p class="small-label">Mixed nursery 01</p>
+              <p class="garden-note">Human archive × Vaeren nursery stock</p>
+            </div>
+            <div class="save-state" id="save-state">Saved on this device</div>
           </div>
-          <div id="discovery-list" class="discovery-list"></div>
-        </div>
-      </aside>
-    </section>
 
-    <section class="how-to" aria-labelledby="how-to-heading">
-      <p class="panel-kicker">A NOTE FROM THE NURSERY</p>
-      <h2 id="how-to-heading">The aim is not a perfect garden.</h2>
-      <p>Each species responds to moisture, neighbors and time differently. Place living things together, observe what happens, and adjust only when the garden asks you to. Some useful relationships are visible immediately. Others take several cycles to understand.</p>
-      <p class="quiet-line">Your garden is saved automatically in this browser.</p>
+          <div
+            class="garden-grid"
+            id="garden-grid"
+            role="grid"
+            aria-label="Six by five garden plots"
+          ></div>
+
+          <div class="garden-haze garden-haze-a" aria-hidden="true"></div>
+          <div class="garden-haze garden-haze-b" aria-hidden="true"></div>
+        </div>
+
+        <section class="observation-card" aria-live="polite">
+          <p class="small-label">Observation</p>
+          <p class="observation-text" id="observation-text">
+            Choose a seed, then choose a patch of soil. New plantings begin as seeds; growth comes only with time and workable conditions.
+          </p>
+        </section>
+      </section>
+
+      <aside class="archive-panel">
+        <section class="archive-card">
+          <p class="small-label">What you have learned</p>
+          <h2>Nursery observations</h2>
+          <p class="archive-intro">
+            Some relationships reveal themselves only when the garden has had enough time to answer.
+          </p>
+          <div id="discoveries" class="discoveries"></div>
+        </section>
+
+        <section class="legend-card">
+          <p class="small-label">Growth</p>
+          <div class="stage-legend">
+            <span>Seed</span>
+            <i></i>
+            <span>Sprout</span>
+            <i></i>
+            <span>Seedling</span>
+            <i></i>
+            <span>Young</span>
+            <i></i>
+            <span>Mature</span>
+          </div>
+          <p>
+            Healthy plants advance through these stages over several nursery cycles.
+            Poor moisture or repeated disturbance can stall them.
+          </p>
+        </section>
+      </aside>
     </section>
   </main>
 
-  <footer>
-    <p>Inspired by <a href="/where-we-take-root.html"><em>Where We Take Root</em></a> by Ben Athem.</p>
-  </footer>
+  <dialog class="reset-dialog" id="reset-dialog">
+    <form method="dialog">
+      <p class="small-label">Begin again</p>
+      <h2>Clear this garden?</h2>
+      <p>This removes the garden saved in this browser and returns every plot to bare soil.</p>
+      <div class="dialog-actions">
+        <button value="cancel" class="dialog-cancel">Keep it</button>
+        <button value="confirm" class="dialog-confirm">Clear garden</button>
+      </div>
+    </form>
+  </dialog>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="game.js?v=1"></script>
+  <script src="game.js?v=2"></script>
 </body>
 </html>
