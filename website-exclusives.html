@@ -8,11 +8,11 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Website-exclusive ebook and paperback editions available directly from author Ben Athem.">
+  <meta name="description" content="Website-exclusive ebook, paperback and colouring editions available directly from author Ben Athem.">
   <link rel="canonical" href="https://benathem.com/website-exclusives.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Website Exclusives | Ben Athem">
-  <meta property="og:description" content="Special ebook and paperback editions available only when you buy direct from Ben Athem.">
+  <meta property="og:description" content="Special editions and extras available only when you buy direct from Ben Athem.">
   <meta property="og:url" content="https://benathem.com/website-exclusives.html">
   <meta property="og:image" content="https://benathem.com/images/web/field-notes-from-earth-website-exclusive.webp">
   <meta name="twitter:card" content="summary_large_image">
@@ -21,6 +21,110 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=19">
+  <style>
+    .exclusive-feature.product-section {
+      position: relative;
+      border-top: 1px solid rgba(199,150,91,.18);
+      background:
+        radial-gradient(circle at 20% 35%, rgba(167,122,67,.09), transparent 31%),
+        linear-gradient(180deg,#071217 0%,#09171c 100%);
+    }
+    .exclusive-feature.product-section:nth-of-type(even) {
+      background:
+        radial-gradient(circle at 82% 30%, rgba(167,122,67,.08), transparent 30%),
+        linear-gradient(180deg,#09171c 0%,#071217 100%);
+    }
+    .exclusive-market-price {
+      margin: 0;
+      color: #eee3d5;
+      font-family: Montserrat,Arial,sans-serif;
+      font-size: .76rem;
+      letter-spacing: .08em;
+      line-height: 1.6;
+    }
+    .exclusive-product-note {
+      max-width: 620px;
+      margin: 22px 0 0;
+      color: #c7bbae;
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .mindfulness-cover-card {
+      position: relative;
+      z-index: 1;
+      aspect-ratio: 2 / 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 34px 26px;
+      overflow: hidden;
+      border: 1px solid rgba(128,100,63,.35);
+      background:
+        radial-gradient(circle at 80% 12%, rgba(199,150,91,.20), transparent 23%),
+        radial-gradient(circle at 18% 82%, rgba(87,116,105,.16), transparent 28%),
+        linear-gradient(180deg,#f0e8d8,#e6dcc9);
+      box-shadow: 24px 30px 62px rgba(0,0,0,.48);
+      color: #23323a;
+      text-align: center;
+    }
+    .mindfulness-cover-card::before,
+    .mindfulness-cover-card::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(80,104,96,.24);
+      pointer-events: none;
+    }
+    .mindfulness-cover-card::after {
+      inset: 30px;
+      border-color: rgba(167,122,67,.22);
+    }
+    .mindfulness-cover-kicker {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 18px;
+      font-family: Montserrat,Arial,sans-serif;
+      font-size: .58rem;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: #80643f;
+    }
+    .mindfulness-cover-title {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-family: "Cormorant Garamond",Georgia,serif;
+      font-size: clamp(2.5rem,5vw,4.2rem);
+      font-weight: 400;
+      line-height: .92;
+    }
+    .mindfulness-cover-mark {
+      position: relative;
+      z-index: 1;
+      margin: 24px 0;
+      color: #a77a43;
+      letter-spacing: .5em;
+    }
+    .mindfulness-cover-sub {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 230px;
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.4;
+      color: #55645f;
+    }
+    .exclusives-benefit-number { display:none !important; }
+    .exclusives-benefit h3 { margin-top: 0; }
+    .exclusives-benefit { padding-top: 28px; }
+    @media (max-width:850px) {
+      .exclusive-product-note { margin-left:auto; margin-right:auto; }
+      .exclusive-market-price { text-align:center; }
+    }
+  </style>
 </head>
 <body class="exclusives-page">
   <a class="skip-link" href="#available-now">Skip to the exclusives</a>
@@ -50,7 +154,7 @@
       </div>
     </section>
 
-    <section class="exclusive-feature" id="available-now" aria-labelledby="exclusive-book-title">
+    <section class="exclusive-feature product-section" id="available-now" aria-labelledby="exclusive-book-title">
       <article class="exclusive-product">
         <div class="exclusive-cover-stage">
           <span class="exclusive-cover-badge">Website exclusive</span>
@@ -79,37 +183,66 @@
       </article>
     </section>
 
-    <section class="exclusives-coming" aria-labelledby="physical-title">
-      <div class="exclusives-coming-inner">
-        <p class="exclusives-coming-kicker">Available now in print</p>
-        <h2 id="physical-title">Field Notes From Earth — Website Exclusive Paperback</h2>
-        <p class="exclusives-coming-lead">The website-exclusive edition is now available as a physical paperback, including the exclusive prologue. Copies are printed and shipped to you by IngramSpark.</p>
-
-        <div class="exclusives-format-grid">
-          <article class="exclusives-format-card">
-            <span>Paperback</span>
-            <h3>Physical Edition</h3>
-            <p>129 × 198 mm perfect-bound paperback · 94 pages · black-and-white interior on 38 lb eggshell paper.</p>
-          </article>
-          <article class="exclusives-format-card">
-            <span>Website exclusive</span>
-            <h3>Exclusive Prologue</h3>
-            <p>Includes the additional opening chapter revealing more of Leth's life before Earth—and before Finn.</p>
-          </article>
-          <article class="exclusives-format-card">
-            <span>Direct fulfilment</span>
-            <h3>Printed by IngramSpark</h3>
-            <p>Your copy is printed and shipped directly by IngramSpark. Shipping and any applicable tax are calculated at checkout.</p>
-          </article>
+    <section class="exclusive-feature product-section" id="paperback" aria-labelledby="paperback-title">
+      <article class="exclusive-product">
+        <div class="exclusive-cover-stage">
+          <span class="exclusive-cover-badge">Paperback exclusive</span>
+          <img src="images/web/field-notes-from-earth-website-exclusive.webp" alt="Website Exclusive Paperback cover of Field Notes From Earth by Ben Athem" width="1024" height="1536">
         </div>
 
-        <div style="margin-top: 38px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
-          <p style="margin: 0; color: #171b1d; font-family: Montserrat, Arial, sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;">£8.99 UK · $11.99 US · A$18.99 AU</p>
-          <a href="https://shop.ingramspark.com/b/084?params=KMK8meFhRKejqnsA1QxcXsFtexg0UQLGHuZMHJDrJYF" target="_blank" rel="noopener" class="exclusive-buy-button">Buy the exclusive paperback</a>
+        <div class="exclusive-product-copy">
+          <p class="exclusive-product-kicker">Available now in print</p>
+          <h2 id="paperback-title">Field Notes From Earth</h2>
+          <p class="exclusive-format">Website Exclusive Paperback · 129 × 198 mm</p>
+          <p class="exclusive-description">The same website-exclusive edition in a physical paperback, including the additional prologue. Your copy is printed and shipped directly by IngramSpark.</p>
+
+          <ul class="exclusive-includes" aria-label="Paperback details">
+            <li>Exclusive prologue included</li>
+            <li>94 pages · black-and-white interior · 38 lb eggshell paper</li>
+            <li>Printed and shipped directly by IngramSpark</li>
+          </ul>
+
+          <div class="exclusive-purchase">
+            <p class="exclusive-market-price">£8.99 UK · $11.99 US · A$18.99 AU</p>
+            <a href="https://shop.ingramspark.com/b/084?params=KMK8meFhRKejqnsA1QxcXsFtexg0UQLGHuZMHJDrJYF" target="_blank" rel="noopener" class="exclusive-buy-button">Buy the exclusive paperback</a>
+          </div>
+          <p class="exclusive-checkout-note">Shipping and applicable tax are calculated by IngramSpark at checkout</p>
+          <p class="exclusive-product-note">Website-exclusive physical edition · Not available through normal retail distribution.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="exclusive-feature product-section" id="mindfulness" aria-labelledby="mindfulness-title">
+      <article class="exclusive-product">
+        <div class="exclusive-cover-stage">
+          <span class="exclusive-cover-badge">Website exclusive</span>
+          <div class="mindfulness-cover-card" role="img" aria-label="Field Notes on Mindfulness colouring collection">
+            <p class="mindfulness-cover-kicker">A colouring collection inspired by</p>
+            <h2 class="mindfulness-cover-title">Field Notes<br>on<br>Mindfulness</h2>
+            <div class="mindfulness-cover-mark" aria-hidden="true">✦ ✦ ✦</div>
+            <p class="mindfulness-cover-sub">A quiet collection of pages inspired by Field Notes From Earth.</p>
+          </div>
         </div>
 
-        <p class="exclusives-notice">Website-exclusive physical edition · Not available through normal retail distribution.</p>
-      </div>
+        <div class="exclusive-product-copy">
+          <p class="exclusive-product-kicker">Available now</p>
+          <h2 id="mindfulness-title">Field Notes on Mindfulness</h2>
+          <p class="exclusive-format">Website Exclusive Colouring Collection · PDF</p>
+          <p class="exclusive-description">A printable adult colouring collection inspired by the landscapes, characters and quieter moments of <em>Field Notes From Earth</em>.</p>
+
+          <ul class="exclusive-includes" aria-label="Colouring collection details">
+            <li>Printable colouring pages for personal use</li>
+            <li>Artwork inspired by scenes and settings from Field Notes From Earth</li>
+            <li>Download the PDF and print only the pages you want to colour</li>
+          </ul>
+
+          <div class="exclusive-purchase">
+            <p class="exclusive-price">£0.99</p>
+            <a href="https://payhip.com/b/Ux257" class="exclusive-buy-button">Buy the colouring book</a>
+          </div>
+          <p class="exclusive-checkout-note">Instant PDF download · Secure checkout via Payhip</p>
+        </div>
+      </article>
     </section>
 
     <section class="exclusives-benefits" aria-labelledby="direct-title">
@@ -117,17 +250,14 @@
         <h2 id="direct-title">Why buy direct?</h2>
         <div class="exclusives-benefit-grid">
           <article class="exclusives-benefit">
-            <span class="exclusives-benefit-number">01</span>
             <h3>Exclusive editions</h3>
             <p>Access formats and bonus material created specifically for the website.</p>
           </article>
           <article class="exclusives-benefit">
-            <span class="exclusives-benefit-number">02</span>
             <h3>Support the stories</h3>
             <p>Buying direct supports Ben's work and helps make future books and editions possible.</p>
           </article>
           <article class="exclusives-benefit">
-            <span class="exclusives-benefit-number">03</span>
             <h3>Clear, secure ordering</h3>
             <p>Digital purchases use secure checkout, while physical copies are printed and shipped by IngramSpark with delivery details shown before payment.</p>
           </article>
