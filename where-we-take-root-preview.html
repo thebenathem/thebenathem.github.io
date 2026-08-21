@@ -15,6 +15,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=18">
+
+  <style>
+    /* Where We Take Root preview only: artwork frames the existing reading page. */
+    .reading-shell {
+      background-color: #e3e7e2;
+      background-image: url("images/web/ben-athem-forest-divider.webp");
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    @media (max-width: 760px) {
+      .reading-shell {
+        background-attachment: scroll;
+      }
+    }
+  </style>
 </head>
 
 <body class="preview-page">
