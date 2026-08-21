@@ -1,4 +1,4 @@
-name: Repair mindfulness cover
+name: Inspect Payhip mindfulness images
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  repair-cover:
+  inspect-images:
     runs-on: ubuntu-latest
     steps:
       - name: Check out site
@@ -23,57 +23,67 @@ jobs:
       - name: Install Pillow
         run: python -m pip install --quiet pillow
 
-      - name: Download Payhip product cover and save valid WebP
+      - name: Inspect every Payhip image candidate
         run: |
           python - <<'PY'
           import html
           import io
           import re
+          import urllib.parse
           import urllib.request
           from pathlib import Path
           from PIL import Image
 
           product_url = 'https://payhip.com/b/Ux257'
-          request = urllib.request.Request(product_url, headers={'User-Agent': 'Mozilla/5.0'})
-          with urllib.request.urlopen(request, timeout=30) as response:
-              page = response.read().decode('utf-8', 'replace')
+          req = urllib.request.Request(product_url, headers={'User-Agent':'Mozilla/5.0'})
+          with urllib.request.urlopen(req, timeout=30) as r:
+              page = r.read().decode('utf-8','replace')
 
+          rows = []
+          seen = set()
+
+          # Capture URLs from HTML attributes, meta tags, srcsets and embedded JSON/scripts.
           patterns = [
-              r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',
-              r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
-              r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)',
+              r'(?:src|data-src|data-lazy-src|content)=["\']([^"\']+)["\']',
+              r'https?://[^"\'<>\\ ]+?\.(?:jpg|jpeg|png|webp)(?:\?[^"\'<>\\ ]*)?',
           ]
-          image_url = None
-          for pattern in patterns:
-              match = re.search(pattern, page, re.I)
-              if match:
-                  image_url = html.unescape(match.group(1))
-                  break
-          if not image_url:
-              raise RuntimeError('Could not find Payhip product cover image URL')
+          raw = []
+          for pat in patterns:
+              raw.extend(re.findall(pat, page, flags=re.I))
 
-          image_request = urllib.request.Request(image_url, headers={'User-Agent': 'Mozilla/5.0', 'Referer': product_url})
-          with urllib.request.urlopen(image_request, timeout=30) as response:
-              image_bytes = response.read()
+          for item in raw:
+              item = html.unescape(item).replace('\\u0026','&').replace('\\/','/')
+              for bit in item.split(','):
+                  url = bit.strip().split(' ')[0]
+                  if not url:
+                      continue
+                  url = urllib.parse.urljoin(product_url, url)
+                  if url in seen:
+                      continue
+                  seen.add(url)
+                  if not re.search(r'\.(?:jpg|jpeg|png|webp)(?:\?|$)', url, re.I):
+                      continue
+                  try:
+                      ir = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0','Referer':product_url})
+                      with urllib.request.urlopen(ir, timeout=20) as resp:
+                          data = resp.read()
+                      im = Image.open(io.BytesIO(data))
+                      rows.append((im.width * im.height, im.width, im.height, im.format, url))
+                  except Exception as e:
+                      rows.append((0,0,0,'ERROR',url + ' :: ' + repr(e)))
 
-          image = Image.open(io.BytesIO(image_bytes)).convert('RGB')
-          if image.width < 300 or image.height < 400:
-              raise RuntimeError(f'Unexpectedly small product image: {image.size}')
-
-          target = Path('images/web/field-notes-on-mindfulness.webp')
-          target.parent.mkdir(parents=True, exist_ok=True)
-          image.save(target, 'WEBP', quality=90, method=6)
-          print(f'Saved {target} at {image.size}')
+          rows.sort(reverse=True)
+          out = ['PAYHIP IMAGE CANDIDATES FOR ' + product_url, '']
+          for area,w,h,fmt,url in rows:
+              out.append(f'{w}x{h} {fmt} area={area} :: {url}')
+          Path('payhip-image-candidates.txt').write_text('\n'.join(out), encoding='utf-8')
+          print('\n'.join(out[:50]))
           PY
 
-      - name: Commit repaired cover
+      - name: Commit candidate report
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add images/web/field-notes-on-mindfulness.webp
-          if git diff --cached --quiet; then
-            echo 'No cover change to commit.'
-            exit 0
-          fi
-          git commit -m 'Repair Field Notes on Mindfulness cover image'
+          git add payhip-image-candidates.txt
+          git commit -m 'Record Payhip mindfulness image candidates' || exit 0
           git push
