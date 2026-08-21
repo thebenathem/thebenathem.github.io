@@ -1,0 +1,110 @@
+/* Growth-stage visual override for Keep Something Growing.
+   This file intentionally changes only plant lifecycle rendering. */
+
+/* Seed: a raised patch of soil, identical for every species. */
+.plant-art.stage-1 {
+  animation: none;
+  transform: translateX(-50%);
+}
+.plant-art.stage-1::before {
+  left: 23%;
+  bottom: 2%;
+  width: 54%;
+  height: 20%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(119,91,66,0.48), transparent 58%),
+    linear-gradient(180deg, #514438, #332c26);
+  box-shadow: inset 0 4px 7px rgba(0,0,0,0.16), 0 3px 7px rgba(0,0,0,0.14);
+  transform: none;
+}
+.plant-art.stage-1::after {
+  left: 40%;
+  bottom: 14%;
+  width: 20%;
+  height: 4%;
+  border-top: 1px solid rgba(188,155,112,0.24);
+  border-radius: 50%;
+  background: transparent;
+  transform: rotate(-4deg);
+}
+.plant-art.stage-1 span::before,
+.plant-art.stage-1 span::after {
+  display: none;
+}
+
+/* Sprout: one shared sprite for every species. */
+.plant-art.stage-2 {
+  animation: none;
+  transform: translateX(-50%) scale(0.78);
+}
+.plant-art.stage-2::before {
+  left: 49%;
+  bottom: 8%;
+  width: 3px;
+  height: 37%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #58735c, #85a07b, #4d6954);
+  transform: rotate(-2deg);
+}
+.plant-art.stage-2::after {
+  left: 31%;
+  bottom: 34%;
+  width: 22%;
+  height: 13%;
+  border-radius: 100% 10% 100% 10%;
+  background: linear-gradient(145deg, #789276, #4f715a);
+  transform: rotate(20deg);
+}
+.plant-art.stage-2 span::before {
+  display: block;
+  right: 29%;
+  left: auto;
+  bottom: 36%;
+  width: 22%;
+  height: 13%;
+  border-radius: 10% 100% 10% 100%;
+  background: linear-gradient(215deg, #789276, #4f715a);
+  transform: rotate(-18deg);
+}
+.plant-art.stage-2 span::after {
+  display: block;
+  left: 28%;
+  bottom: 2%;
+  width: 44%;
+  height: 12%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(87,70,55,0.72), rgba(50,43,37,0.54));
+  transform: none;
+}
+
+/* Sapling: species identity first becomes visible. */
+.plant-art.stage-3 {
+  animation: none;
+  transform: translateX(-50%) scale(0.62);
+}
+
+/* Mature: full unique plant/tree. */
+.plant-art.stage-4 {
+  transform: translateX(-50%) scale(1);
+}
+
+/* Thriving: highest stage, slightly fuller and more resonant. */
+.plant-art.stage-5 {
+  animation: thriving-breathe 5.4s ease-in-out infinite;
+}
+.plot.thriving .plant-art:not(.stage-5) {
+  filter: none;
+}
+.plot.thriving .plant-art.stage-5 {
+  filter: drop-shadow(0 0 8px rgba(161,195,154,0.28)) saturate(1.08);
+}
+
+@keyframes thriving-breathe {
+  0%,100% { transform: translateX(-50%) scale(1.06) rotate(-0.6deg); }
+  50% { transform: translateX(-50%) scale(1.1) rotate(0.6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plant-art.stage-5 { animation: none; transform: translateX(-50%) scale(1.08); }
+}
