@@ -102,7 +102,11 @@
   border-radius: 0;
   background: #e1b54f;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 94%, 50% 72%, 21% 94%, 32% 57%, 2% 35%, 39% 35%);
-  box-shadow: 19px 3px 0 #e7bd55, 8px 16px 0 #d8a943, 29px 18px 0 #e0b349;
+  box-shadow: none;
+  filter:
+    drop-shadow(19px 3px 0 #e7bd55)
+    drop-shadow(-11px 16px 0 #d8a943)
+    drop-shadow(10px 17px 0 #e0b349);
 }
 
 /* Stage 5 is the tomato harvest stage: ripe fruit only, no flowers. */
@@ -115,6 +119,7 @@
   border-radius: 50%;
   background: #ad5f43;
   clip-path: none;
+  filter: none;
   box-shadow:
     18px 4px 0 #bb6848,
     8px 15px 0 #a9573f,
