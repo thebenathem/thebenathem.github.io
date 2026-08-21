@@ -1801,12 +1801,10 @@ textarea:focus-visible {
   padding: 0 20px 110px;
 }
 
-.reading-page {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 110px clamp(24px, 7vw, 74px) 100px;
-  background: rgba(249, 246, 239, 0.55);
-  box-shadow: 0 0 70px rgba(0, 0, 0, 0.12);
+.reading-shell {
+  background: #e3e7e2;
+  color: #1a1d1e;
+  padding: 0 20px 110px;
 }
 
 .reading-page-header {
