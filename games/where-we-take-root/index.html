@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="game.css?v=1">
-  <link rel="stylesheet" href="growth-stages.css?v=1">
+  <link rel="stylesheet" href="growth-stages.css?v=2">
 </head>
 <body>
   <a class="skip-link" href="#garden">Skip to the garden</a>
@@ -45,6 +45,10 @@
           <button class="tool-button" type="button" data-tool="water">
             <span class="tool-icon" aria-hidden="true">◌</span>
             <span><strong>Water</strong><small>Moisten one bed</small></span>
+          </button>
+          <button class="tool-button" type="button" data-tool="harvest">
+            <span class="tool-icon" aria-hidden="true">✦</span>
+            <span><strong>Harvest</strong><small>Pick a ready crop</small></span>
           </button>
           <button class="tool-button" type="button" data-tool="remove">
             <span class="tool-icon" aria-hidden="true">×</span>
@@ -106,7 +110,7 @@
     <section class="how-to" aria-labelledby="how-to-heading">
       <p class="panel-kicker">A NOTE FROM THE NURSERY</p>
       <h2 id="how-to-heading">The aim is not a perfect garden.</h2>
-      <p>Each species responds to moisture, neighbors and time differently. Place living things together, observe what happens, and adjust only when the garden asks you to. Some useful relationships are visible immediately. Others take several cycles to understand.</p>
+      <p>Seeds need water before growth can begin. Each species then responds to moisture, neighbors and time differently. Crops such as tomatoes move from seed to sprout, sapling, blossom and finally harvest. Place living things together, observe what happens, and adjust only when the garden asks you to.</p>
       <p class="quiet-line">Your garden is saved automatically in this browser.</p>
     </section>
   </main>
@@ -117,6 +121,6 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="game.js?v=1"></script>
-  <script src="growth-stages.js?v=1"></script>
+  <script src="growth-stages.js?v=2"></script>
 </body>
 </html>
