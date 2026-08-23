@@ -336,7 +336,16 @@ if (document.body.classList.contains("home-page")) {
             scienceFictionGroup.classList.add("book-catalogue-list");
 
             const subgroups = Array.from(scienceFictionGroup.querySelectorAll(":scope > .book-subgroup"));
-            subgroups.forEach((subgroup, index) => {
+            const worldsThatAnswer = subgroups.find((subgroup) =>
+                subgroup.querySelector(":scope > .book-subgroup-heading")?.textContent.trim() === "The Worlds That Answer"
+            );
+
+            if (worldsThatAnswer && subgroups[0] !== worldsThatAnswer) {
+                scienceFictionGroup.insertBefore(worldsThatAnswer, subgroups[0]);
+            }
+
+            const orderedSubgroups = Array.from(scienceFictionGroup.querySelectorAll(":scope > .book-subgroup"));
+            orderedSubgroups.forEach((subgroup, index) => {
                 createAccordion({
                     container: subgroup,
                     heading: subgroup.querySelector(":scope > .book-subgroup-heading"),
