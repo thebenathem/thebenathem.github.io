@@ -14,9 +14,7 @@ if (menuButton && nav) {
         menuButton.setAttribute("aria-expanded", String(open));
     });
 
-    nav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", closeMenu);
-    });
+    nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
 
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
@@ -25,8 +23,7 @@ if (menuButton && nav) {
         }
     });
 
-    const desktopView = window.matchMedia("(min-width: 851px)");
-    desktopView.addEventListener("change", closeMenu);
+    window.matchMedia("(min-width: 851px)").addEventListener("change", closeMenu);
 }
 
 const contactForm = document.querySelector("#contact-form");
@@ -47,9 +44,7 @@ if (contactForm && formStatus) {
             const response = await fetch(contactForm.action, {
                 method: "POST",
                 body: formData,
-                headers: {
-                    Accept: "application/json"
-                }
+                headers: { Accept: "application/json" }
             });
 
             if (response.ok) {
@@ -72,7 +67,6 @@ if (document.body.classList.contains("home-page")) {
     const booksSection = document.querySelector("#books");
 
     if (booksSection) {
-        /* This artwork belongs to the Where We Take Root preview, not the homepage. */
         document.querySelector(".home-art-divider")?.remove();
 
         const accordionStyles = document.createElement("style");
@@ -83,24 +77,20 @@ if (document.body.classList.contains("home-page")) {
             }
 
             .books-section .book-catalogue-list,
-            .books-section .book-group.book-catalogue-accordion {
+            .books-section .book-catalogue-accordion {
                 max-width: 1240px;
-                margin: 0 auto;
+                margin-left: auto;
+                margin-right: auto;
             }
 
-            .books-section .book-catalogue-list .book-subgroup,
-            .books-section .book-group.book-catalogue-accordion {
-                margin: 0;
+            .books-section .book-catalogue-accordion {
+                margin-top: 0;
+                margin-bottom: 0;
                 padding: 0;
                 border-top: 1px solid rgba(207, 177, 139, 0.22);
             }
 
-            .books-section .book-catalogue-list .book-subgroup + .book-subgroup,
-            .books-section .book-group.book-catalogue-accordion {
-                margin-top: 0;
-                padding-top: 0;
-            }
-
+            .books-section > .book-subgroup.book-catalogue-accordion:last-child,
             .books-section .book-group.book-catalogue-accordion {
                 border-bottom: 1px solid rgba(207, 177, 139, 0.22);
             }
@@ -188,7 +178,7 @@ if (document.body.classList.contains("home-page")) {
                 font-family: Montserrat, Arial, sans-serif;
                 font-size: 1rem;
                 line-height: 1;
-                transform: translateY(-50%) rotate(0deg);
+                transform: translateY(-50%);
                 transform-origin: center;
                 transition: transform 180ms ease;
                 pointer-events: none;
@@ -257,9 +247,7 @@ if (document.body.classList.contains("home-page")) {
 
         const openAccordion = (item) => {
             accordionItems.forEach((otherItem) => {
-                if (otherItem !== item) {
-                    closeAccordion(otherItem);
-                }
+                if (otherItem !== item) closeAccordion(otherItem);
             });
 
             item.button.setAttribute("aria-expanded", "true");
@@ -268,9 +256,7 @@ if (document.body.classList.contains("home-page")) {
         };
 
         const createAccordion = ({ container, heading, kicker, note, panel, id }) => {
-            if (!container || !heading || !panel) {
-                return;
-            }
+            if (!container || !heading || !panel) return;
 
             container.classList.add("book-catalogue-accordion");
 
@@ -323,32 +309,36 @@ if (document.body.classList.contains("home-page")) {
 
             button.addEventListener("click", () => {
                 const isOpen = button.getAttribute("aria-expanded") === "true";
-                if (isOpen) {
-                    closeAccordion(item);
-                } else {
-                    openAccordion(item);
-                }
+                isOpen ? closeAccordion(item) : openAccordion(item);
             });
         };
 
         const bookGroups = Array.from(booksSection.querySelectorAll(":scope > .book-group"));
         const scienceFictionGroup = bookGroups[0];
         const fantasyGroup = bookGroups[1];
+        let standaloneScienceFiction = null;
 
         if (scienceFictionGroup) {
             scienceFictionGroup.classList.add("book-catalogue-list");
 
             const subgroups = Array.from(scienceFictionGroup.querySelectorAll(":scope > .book-subgroup"));
-            const worldsThatAnswer = subgroups.find((subgroup) =>
-                subgroup.querySelector(":scope > .book-subgroup-heading")?.textContent.trim() === "The Worlds That Answer"
+            const findSubgroup = (name) => subgroups.find((subgroup) =>
+                subgroup.querySelector(":scope > .book-subgroup-heading")?.textContent.trim() === name
             );
 
-            if (worldsThatAnswer && subgroups[0] !== worldsThatAnswer) {
-                scienceFictionGroup.insertBefore(worldsThatAnswer, subgroups[0]);
+            const worldsThatAnswer = findSubgroup("The Worlds That Answer");
+            const distanceWeKeepOpen = findSubgroup("The Distance We Keep Open");
+            standaloneScienceFiction = findSubgroup("Standalone Science Fiction");
+
+            if (standaloneScienceFiction && fantasyGroup) {
+                booksSection.insertBefore(standaloneScienceFiction, fantasyGroup.nextSibling);
             }
 
-            const orderedSubgroups = Array.from(scienceFictionGroup.querySelectorAll(":scope > .book-subgroup"));
-            orderedSubgroups.forEach((subgroup, index) => {
+            [worldsThatAnswer, distanceWeKeepOpen].filter(Boolean).forEach((subgroup) => {
+                scienceFictionGroup.appendChild(subgroup);
+            });
+
+            [worldsThatAnswer, distanceWeKeepOpen].filter(Boolean).forEach((subgroup, index) => {
                 createAccordion({
                     container: subgroup,
                     heading: subgroup.querySelector(":scope > .book-subgroup-heading"),
@@ -362,14 +352,10 @@ if (document.body.classList.contains("home-page")) {
 
         if (fantasyGroup) {
             fantasyGroup.classList.add("book-group-series");
-
-            const fantasyRule = fantasyGroup.querySelector(":scope > .tiny-rule");
-            fantasyRule?.remove();
+            fantasyGroup.querySelector(":scope > .tiny-rule")?.remove();
 
             const fantasyHeading = fantasyGroup.querySelector(":scope > .book-group-heading");
-            if (fantasyHeading) {
-                fantasyHeading.textContent = "Dragonwake";
-            }
+            if (fantasyHeading) fantasyHeading.textContent = "Dragonwake";
 
             const fantasyKicker = document.createElement("p");
             fantasyKicker.textContent = "A fantasy romance series";
@@ -383,7 +369,18 @@ if (document.body.classList.contains("home-page")) {
                 kicker: fantasyKicker,
                 note: fantasyNote,
                 panel: fantasyGroup.querySelector(":scope > .books-layout"),
-                id: "book-accordion-panel-fantasy"
+                id: "book-accordion-panel-dragonwake"
+            });
+        }
+
+        if (standaloneScienceFiction) {
+            createAccordion({
+                container: standaloneScienceFiction,
+                heading: standaloneScienceFiction.querySelector(":scope > .book-subgroup-heading"),
+                kicker: null,
+                note: standaloneScienceFiction.querySelector(":scope > .book-subgroup-note"),
+                panel: standaloneScienceFiction.querySelector(":scope > .books-layout"),
+                id: "book-accordion-panel-standalone"
             });
         }
     }
