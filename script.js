@@ -158,7 +158,8 @@ if (document.body.classList.contains("home-page")) {
                 text-transform: uppercase;
             }
 
-            .book-subgroup-series .book-accordion-title {
+            .book-subgroup-series .book-accordion-title,
+            .book-group-series .book-accordion-title {
                 font-size: 1.55rem;
                 letter-spacing: 0.1em;
                 text-transform: none;
@@ -213,12 +214,14 @@ if (document.body.classList.contains("home-page")) {
                 }
 
                 .book-accordion-title,
-                .book-subgroup-series .book-accordion-title {
+                .book-subgroup-series .book-accordion-title,
+                .book-group-series .book-accordion-title {
                     font-size: 1.18rem;
                     letter-spacing: 0.1em;
                 }
 
-                .book-subgroup-series .book-accordion-title {
+                .book-subgroup-series .book-accordion-title,
+                .book-group-series .book-accordion-title {
                     letter-spacing: 0.06em;
                 }
 
@@ -358,14 +361,27 @@ if (document.body.classList.contains("home-page")) {
         }
 
         if (fantasyGroup) {
+            fantasyGroup.classList.add("book-group-series");
+
             const fantasyRule = fantasyGroup.querySelector(":scope > .tiny-rule");
             fantasyRule?.remove();
 
+            const fantasyHeading = fantasyGroup.querySelector(":scope > .book-group-heading");
+            if (fantasyHeading) {
+                fantasyHeading.textContent = "Dragonwake";
+            }
+
+            const fantasyKicker = document.createElement("p");
+            fantasyKicker.textContent = "A fantasy romance series";
+
+            const fantasyNote = document.createElement("p");
+            fantasyNote.innerHTML = "The series begins with <em>The Forty-Fourth Mark</em>.";
+
             createAccordion({
                 container: fantasyGroup,
-                heading: fantasyGroup.querySelector(":scope > .book-group-heading"),
-                kicker: null,
-                note: null,
+                heading: fantasyHeading,
+                kicker: fantasyKicker,
+                note: fantasyNote,
                 panel: fantasyGroup.querySelector(":scope > .books-layout"),
                 id: "book-accordion-panel-fantasy"
             });
