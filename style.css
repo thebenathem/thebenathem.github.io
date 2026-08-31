@@ -783,6 +783,114 @@ textarea:focus-visible {
   text-decoration: underline;
 }
 
+/* Where We Take Root — release purchase panel */
+.book-buy-panel {
+  margin: 34px 0 30px;
+  padding: 26px 28px 28px;
+  border: 1px solid rgba(194, 173, 145, 0.42);
+  background: rgba(255, 255, 255, 0.025);
+}
+.book-buy-kicker {
+  margin: 0 0 8px;
+  color: #c69a63;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+.book-buy-panel h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.book-buy-note {
+  margin: 10px 0 0;
+  color: #c7bbae;
+  line-height: 1.45;
+}
+.book-buy-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 22px;
+}
+.book-buy-button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 18px;
+  border: 1px solid rgba(198, 154, 99, 0.65);
+  color: #eee3d5;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+.book-buy-button-primary {
+  grid-column: 1 / -1;
+  background: #a86f3f;
+  border-color: #c69461;
+  color: #fff8ee;
+}
+.book-buy-button:hover,
+.book-buy-button:focus-visible {
+  background: rgba(167, 122, 67, 0.2);
+  border-color: #c69a63;
+  text-decoration: none !important;
+  transform: translateY(-2px);
+}
+.book-buy-button-primary:hover,
+.book-buy-button-primary:focus-visible {
+  background: #bc7c45;
+}
+.book-extra-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: baseline;
+  margin: 0 0 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(194, 173, 145, 0.22);
+}
+.book-extra-links span {
+  width: 100%;
+  color: #bca78a;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.book-extra-links a {
+  color: #cfb18b;
+  border-bottom: 1px solid rgba(207, 177, 139, 0.48);
+}
+.book-extra-links a:hover,
+.book-extra-links a:focus-visible {
+  border-color: #cfb18b;
+}
+
+
+@media (max-width: 560px) {
+  .book-buy-panel {
+    padding: 22px 18px 20px;
+  }
+  .book-buy-actions {
+    grid-template-columns: 1fr;
+  }
+  .book-buy-button-primary {
+    grid-column: auto;
+  }
+  .book-extra-links {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 /* ==================================================
    Field Notes From Earth — direct sales page
    ================================================== */
